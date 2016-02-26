@@ -1,18 +1,16 @@
 package com.example.dell.fragmentinfragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 /**
  * 嵌套Fragment使用
@@ -60,7 +58,7 @@ public class FragmentNestActivity extends FragmentActivity implements OnClickLis
     /** 嵌套Fragment */
     public final static class FragmentParent extends Fragment {
 
-        public static final FragmentParent newInstance(int position) {
+        public  final static FragmentParent newInstance(int position) {
             FragmentParent f = new FragmentParent();
             Bundle args = new Bundle(2);
             args.putInt("position", position);
@@ -75,38 +73,43 @@ public class FragmentNestActivity extends FragmentActivity implements OnClickLis
 
             final int parent_position = getArguments().getInt("position");
             //注意这里的代码
-            pager.setAdapter(new FragmentStatePagerAdapter(getChildFragmentManager()) {
-
-                @Override
-                public Fragment getItem(final int position) {
-                    return new Fragment() {
-                        @Override
-                        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-                            TextView convertView = new TextView(getActivity());
-                            convertView.setLayoutParams(new ViewGroup.LayoutParams(
-                                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-                            convertView.setGravity(Gravity.CENTER);
-                            convertView.setTextSize(30);
-                            convertView.setTextColor(Color.BLACK);
-                            convertView.setText("Page " + position);
-                            return convertView;
-                        }
-                    };
-                }
-
-                @Override
-                public int getCount() {
-                    return 3;
-                }
-
-                @Override
-                public CharSequence getPageTitle(int position) {
-                    return "Page " + parent_position + " - " + position;
-                }
-
-            });
-
+//            getChildFragmentManager()
+            SectionPagerAdapter adapter=new SectionPagerAdapter(getChildFragmentManager());
+            pager.setAdapter(adapter);
             return convertView;
+        }
+    }
+    public static class SectionPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return new ListViewFragment();
+                case 1:
+                default:
+                    return new RecyclerViewFragment();
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return 2;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "ListView";
+                case 1:
+                default:
+                    return "RecyclerView";
+            }
         }
     }
 }
