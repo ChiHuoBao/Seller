@@ -1,5 +1,9 @@
 [
     {
+        "merged": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\src\\main\\res\\menu\\main.xml"
+    },
+    {
         "merged": "E:\\Android\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
         "source": "E:\\Android\\imooc-weixinfragment\\app\\src\\main\\res\\menu\\main.xml"
     },

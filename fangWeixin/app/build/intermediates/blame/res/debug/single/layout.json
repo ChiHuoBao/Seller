@@ -1,5 +1,77 @@
 [
     {
+        "merged": "H:\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tab02.xml",
+        "source": "H:\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\tab02.xml"
+    },
+    {
+        "merged": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\bottom.xml",
+        "source": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\src\\main\\res\\layout\\bottom.xml"
+    },
+    {
+        "merged": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\order_manage.xml",
+        "source": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\src\\main\\res\\layout\\order_manage.xml"
+    },
+    {
+        "merged": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\top.xml",
+        "source": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\src\\main\\res\\layout\\top.xml"
+    },
+    {
+        "merged": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\guide_2.xml",
+        "source": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\src\\main\\res\\layout\\guide_2.xml"
+    },
+    {
+        "merged": "E:\\Android\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\guide_2.xml",
+        "source": "E:\\Android\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\guide_2.xml"
+    },
+    {
+        "merged": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "E:\\Android\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\top.xml",
+        "source": "E:\\Android\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\top.xml"
+    },
+    {
+        "merged": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tab03.xml",
+        "source": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\src\\main\\res\\layout\\tab03.xml"
+    },
+    {
+        "merged": "H:\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "H:\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "E:\\Android\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\order_manage.xml",
+        "source": "E:\\Android\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\order_manage.xml"
+    },
+    {
+        "merged": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\guide_1.xml",
+        "source": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\src\\main\\res\\layout\\guide_1.xml"
+    },
+    {
+        "merged": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\food_menu.xml",
+        "source": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\src\\main\\res\\layout\\food_menu.xml"
+    },
+    {
+        "merged": "E:\\Android\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "E:\\Android\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tab01.xml",
+        "source": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\src\\main\\res\\layout\\tab01.xml"
+    },
+    {
+        "merged": "E:\\Android\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\guide_1.xml",
+        "source": "E:\\Android\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\guide_1.xml"
+    },
+    {
+        "merged": "E:\\Android\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tab03.xml",
+        "source": "E:\\Android\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\tab03.xml"
+    },
+    {
+        "merged": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tab04.xml",
+        "source": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\src\\main\\res\\layout\\tab04.xml"
+    },
+    {
         "merged": "H:\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\top.xml",
         "source": "H:\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\top.xml"
     },
@@ -8,48 +80,24 @@
         "source": "E:\\Android\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\tab01.xml"
     },
     {
-        "merged": "H:\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tab02.xml",
-        "source": "H:\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\tab02.xml"
-    },
-    {
         "merged": "H:\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tab01.xml",
         "source": "H:\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\tab01.xml"
-    },
-    {
-        "merged": "E:\\Android\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\guide_2.xml",
-        "source": "E:\\Android\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\guide_2.xml"
     },
     {
         "merged": "H:\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tab04.xml",
         "source": "H:\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\tab04.xml"
     },
     {
-        "merged": "E:\\Android\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\top.xml",
-        "source": "E:\\Android\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\top.xml"
-    },
-    {
         "merged": "E:\\Android\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tab04.xml",
         "source": "E:\\Android\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\tab04.xml"
-    },
-    {
-        "merged": "H:\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
-        "source": "H:\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
         "merged": "E:\\Android\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\bottom.xml",
         "source": "E:\\Android\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\bottom.xml"
     },
     {
-        "merged": "E:\\Android\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\order_manage.xml",
-        "source": "E:\\Android\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\order_manage.xml"
-    },
-    {
         "merged": "H:\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tab03.xml",
         "source": "H:\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\tab03.xml"
-    },
-    {
-        "merged": "E:\\Android\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
-        "source": "E:\\Android\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
         "merged": "E:\\Android\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tab02.xml",
@@ -64,11 +112,7 @@
         "source": "H:\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\bottom.xml"
     },
     {
-        "merged": "E:\\Android\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\guide_1.xml",
-        "source": "E:\\Android\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\guide_1.xml"
-    },
-    {
-        "merged": "E:\\Android\\imooc-weixinfragment\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tab03.xml",
-        "source": "E:\\Android\\imooc-weixinfragment\\app\\src\\main\\res\\layout\\tab03.xml"
+        "merged": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tab02.xml",
+        "source": "E:\\ChiHuoBao\\android\\fangWeixin\\app\\src\\main\\res\\layout\\tab02.xml"
     }
 ]
