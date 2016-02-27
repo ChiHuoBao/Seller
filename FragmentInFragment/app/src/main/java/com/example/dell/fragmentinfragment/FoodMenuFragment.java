@@ -1,5 +1,6 @@
 package com.example.dell.fragmentinfragment;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,9 +13,13 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,33 +36,68 @@ public class FoodMenuFragment extends Fragment {
 	/**
 	 * 左边listview的要使用的数组
 	 */
-	String[] arr = new String[] { "套餐A", "套餐B", "套餐C", "套餐D", "套餐E", "套餐F" };
 
-
-	String[] arr2 = new String[] { "1", "food", "food", "food", "food", "food" };
-	String[] arr3 = new String[] { "2", "food", "food", "food", "food", "food", "food" };
-	String[] arr4 = new String[] { "3", "food", "food", "food", "food" };
-	String[] arr5 = new String[] { "4", "food", "food", "food", "food", "food", "food",
-			"food" };
-	String[] arr6 = new String[] { "5", "food", "food", "food" };
-	String[] arr7 = new String[] { "6", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food" };
-
-	String[][] arr8 = new String[][] { arr2, arr3, arr4, arr5, arr6, arr7 };
-
-	/**
-	 * 用来存放 food数组
-	 */
-	List<String> list;
-
+	private ArrayList<String> foodType = new ArrayList<String>();
+	private ArrayList<String> allFood = new ArrayList<String>();
 	/**
 	 * 用来记录每一个 1 2 3 4 5 6 在右边listview的位置；
 	 */
 	List<Integer> nums = new ArrayList<Integer>();
+
+	private void initData(){
+		String[] arr = new String[] { "套餐A", "套餐B", "套餐C", "套餐D", "套餐E", "套餐F" };
+
+		String[] arr2 = new String[] { "food1", "food2", "food3", "food4", "food5" };
+		String[] arr3 = new String[] {  "food1", "food2", "food3", "food4", "food5", "food6" };
+		String[] arr4 = new String[] {  "food1", "food2", "food3", "food4" };
+		String[] arr5 = new String[] {  "food", "food", "food", "food", "food", "food",
+				"food" };
+		String[] arr6 = new String[] {  "food", "food", "food" };
+		String[] arr7 = new String[] { "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food" };
+
+		for (int i = 0; i < arr.length; i++) {
+			foodType.add(arr[i]);
+		}
+
+		String[][] arr8 = new String[][] { arr2, arr3, arr4, arr5, arr6, arr7 };
+		for (int i = 0; i < foodType.size(); i++) {
+			allFood.add(foodType.get(i));
+			for (int j = 0; j < arr8[i].length; j++) {
+				allFood.add(arr8[i][j]);
+			}
+		}
+
+		for (int i = 0; i < foodType.size(); i++)
+		{
+			if (i == 0)
+			{
+				nums.add(0);
+			} else if (i > 0 && i < foodType.size())
+			{
+				int num = 0;
+				for (int j = 0; j < i; j++)
+				{
+					num = num + arr8[j].length+1;
+
+				}
+				nums.add(num);
+			}
+		}
+		nums.add(1000);
+	}
+
+	/**
+	 * 用来存放 food数组
+	 */
+	/*List<String> list;*/
+
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
 		//引入我们的布局
 		View foodMenuLayout =  inflater.inflate(R.layout.food_menu, container, false);
+		initData();
 		listView = (ListView)foodMenuLayout.findViewById(R.id.listView1);
 		listView2 = (ListView)foodMenuLayout.findViewById(R.id.listView2);
 		initView();
@@ -66,14 +106,11 @@ public class FoodMenuFragment extends Fragment {
 	}
 	private void initView()
 	{
-
-
-
 		//菜品种类的listView
 		listView.setAdapter(new ArrayAdapter<String>(getActivity(),
-				android.R.layout.simple_expandable_list_item_1, arr));
+				android.R.layout.simple_expandable_list_item_1, foodType));
 
-		list = new ArrayList<String>();
+		/*list = new ArrayList<String>();
 
 		for (int j = 0; j < arr8.length; j++)
 		{
@@ -81,35 +118,24 @@ public class FoodMenuFragment extends Fragment {
 			{
 				list.add(arr8[j][j2]);
 			}
-		}
+		}*/
 
-		for (int i = 0; i < arr8.length; i++)
-		{
-			if (i == 0)
-			{
-				nums.add(0);
-			} else if (i > 0 && i < arr8.length)
-			{
-				int num = 0;
-				for (int j = 0; j < i; j++)
-				{
-					num = num + arr8[j].length;
 
-				}
-				nums.add(num);
-			}
-		}
 
-		Log.i(TAG, "nums.size()是否等于arr8.length" + (nums.size() == arr8.length));
+		Log.i(TAG, "nums.size()是否等于arr8.length" + (nums.size() == foodType.size() + 1));
 		/*listView2 = (ListView) getActivity().findViewById(R.id.listView2);*/
-		listView2.setAdapter(new MyAdapter());
-
-		listView2.setOnScrollListener(new AbsListView.OnScrollListener()
-		{
+		listView2.setAdapter(new MyListGroupAdapter(getActivity(),allFood,foodType));
+		listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				Toast.makeText(getActivity(), "" + position, Toast.LENGTH_SHORT).show();
+			}
+		});
+		listView2.setOnScrollListener(new AbsListView.OnScrollListener() {
 
 			@Override
-			public void onScrollStateChanged(AbsListView view, int scrollState)
-			{
+			public void onScrollStateChanged(AbsListView view, int scrollState) {
+
 
 			}
 
@@ -118,26 +144,33 @@ public class FoodMenuFragment extends Fragment {
 			 */
 			@Override
 			public void onScroll(AbsListView view, int firstVisibleItem,
-								 int visibleItemCount, int totalItemCount)
-			{
-				if (nums.contains(firstVisibleItem) && listView.getChildCount() > 0)
-				{
+								 int visibleItemCount, int totalItemCount) {
 
-					for (int i = 0; i < listView.getChildCount(); i++)
-					{
-						if (i == nums.indexOf(firstVisibleItem))
-						{
+
+					/*for (int i = 0; i < nums.size() - 1; i++) {
+						if (firstVisibleItem < nums.indexOf(i+1)&& firstVisibleItem >= nums.indexOf(i)
+								&& listView.getChildCount() > 0) {
 							listView.getChildAt(i).setBackgroundColor(
 									Color.rgb(100, 100, 100));
-						} else
-						{
+
+						} else {
+							listView.getChildAt(i).setBackgroundColor(Color.TRANSPARENT);
+						}
+					}*/
+
+				if (nums.contains(firstVisibleItem) && listView.getChildCount() > 0) {
+
+					for (int i = 0; i < listView.getChildCount(); i++) {
+						if (i == nums.indexOf(firstVisibleItem)) {
+							listView.getChildAt(i).setBackgroundColor(
+									Color.rgb(100, 100, 100));
+						} else {
 							listView.getChildAt(i).setBackgroundColor(Color.TRANSPARENT);
 
 						}
 
 
 					}
-
 
 
 				}
@@ -147,31 +180,27 @@ public class FoodMenuFragment extends Fragment {
 		/**
 		 * 下面这个函数表示点了种类表中的item中，item变色，然后右边的菜品列表跳转的当前种类置顶
 		 */
-		listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-		{
+		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position,
-									long id)
-			{
-				for (int i = 0; i < listView.getChildCount(); i++)
-				{
-					if (i == position)
-					{
+									long id) {
+				for (int i = 0; i < listView.getChildCount(); i++) {
+					if (i == position) {
 						view.setBackgroundColor(Color.rgb(100, 100, 100));
-					} else
-					{
+					} else {
 						view.setBackgroundColor(Color.TRANSPARENT);
 					}
 				}
 
 				listView2.setSelection(nums.get(position));
+				Log.d("position", "" + nums.get(position));
 
 			}
 		});
 
 	}
 
-	class MyAdapter extends BaseAdapter
+	/*class MyAdapter extends BaseAdapter
 	{
 
 		@Override
@@ -208,6 +237,45 @@ public class FoodMenuFragment extends Fragment {
 			return textView;
 		}
 
+	}*/
+	private static class  MyListGroupAdapter extends ArrayAdapter{
+		private ArrayList listType;
+
+		public MyListGroupAdapter(Context context, ArrayList<String> all,ArrayList<String> listType) {
+			super(context,0,all);
+			this.listType = listType;
+		}
+
+
+
+		@Override
+		public boolean isEnabled(int position) {
+			if(listType.contains(getItem(position))){
+				return false;
+			}
+			return super.isEnabled(position);
+		}
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			View view = convertView;
+			if(listType.contains(getItem(position))){
+				view = LayoutInflater.from(getContext()).inflate(R.layout.group_list_item_tag, null);
+				Log.d("text",getItem(position).toString());
+				Log.d("number",position+"");
+			}else{
+				view = LayoutInflater.from(getContext()).inflate(R.layout.group_list_item, null);
+			}
+			TextView textView = (TextView) view.findViewById(R.id.group_list_item_text);
+			textView.setText(getItem(position).toString());
+
+
+			return view;
+		}
+
+
+
 	}
+
+
 
 }
