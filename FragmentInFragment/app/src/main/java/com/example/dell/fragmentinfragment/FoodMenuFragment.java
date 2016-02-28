@@ -5,21 +5,17 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +25,7 @@ public class FoodMenuFragment extends Fragment {
 
 	private ListView listView;
 	private ListView listView2 ;
+	private Button mButton;
 	/**
 	 * 本来想做标题停留在最上方的，不想想了
 	 */
@@ -100,6 +97,13 @@ public class FoodMenuFragment extends Fragment {
 		initData();
 		listView = (ListView)foodMenuLayout.findViewById(R.id.listView1);
 		listView2 = (ListView)foodMenuLayout.findViewById(R.id.listView2);
+		mButton= (Button) foodMenuLayout.findViewById(R.id.but);
+		mButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(getActivity(),"sadfdsafasd",Toast.LENGTH_LONG).show();
+			}
+		});
 		initView();
 		return foodMenuLayout;
 

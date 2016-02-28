@@ -4,11 +4,17 @@
     android:layout_height="@dimen/list_item_height"
     android:background="@color/eggplant">
 
-    <ImageView
-        android:id="@+id/image_view_icon"
-        android:src="@drawable/icon_1"
-        android:layout_gravity="center"
+
+    <TextView
+        android:text="asdfsdafsad"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
+
+    <!--<ImageView-->
+        <!--android:id="@+id/image_view_icon"-->
+        <!--android:src="@drawable/icon_1"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
 
 </FrameLayout>

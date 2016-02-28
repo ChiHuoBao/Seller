@@ -194,7 +194,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         private int screenW;
         private ArrayList<Fragment> fragmentListView;
 
-
+/*   */
         public  final static FragmentParent newInstance(int position) {
             FragmentParent f = new FragmentParent();
             Bundle args = new Bundle(2);
@@ -213,10 +213,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             getActivity().getWindowManager().getDefaultDisplay().getMetrics(metric);
             screenW = metric.widthPixels;
             ListViewFragment listViewFragment = new ListViewFragment();
-            RecyclerViewFragment recyclerViewFragment = new RecyclerViewFragment();
+            ListViewFragment listViewFragment2 = new ListViewFragment();
+            //RecyclerViewFragment recyclerViewFragment = new RecyclerViewFragment();
             fragmentListView = new ArrayList<Fragment>();
             fragmentListView.add(listViewFragment);
-            fragmentListView.add(recyclerViewFragment);
+            fragmentListView.add(listViewFragment2);
 
 
             final int parent_position = getArguments().getInt("position");
@@ -255,7 +256,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                         return "ListView";
                     case 1:
                     default:
-                        return "RecyclerView";
+                        return "ListView";
                 }
             }
 
