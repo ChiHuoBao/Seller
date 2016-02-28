@@ -3,10 +3,37 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center">
-    <TextView
-        android:id="@+id/group_list_item_text"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#cccccc"/>
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:background="#cccccc"
+        android:id="@+id/item_tag_layout"
+        >
+        <TextView
+            android:id="@+id/group_list_item_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:paddingLeft="30dp"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:gravity="center_vertical"
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:text="修改"
+            android:gravity="center_vertical"
+            android:paddingRight="30dp"
+            android:textColor="#0099cc"
+            />
+
+    </RelativeLayout>
+
 
 </LinearLayout>
