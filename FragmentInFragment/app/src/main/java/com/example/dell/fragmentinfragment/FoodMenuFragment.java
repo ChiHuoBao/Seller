@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.AndroidCharacter;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ import java.util.List;
 public class FoodMenuFragment extends Fragment {
 
 	private static final String TAG = "MainActivity";
+	String[] arr = new String[] { "套餐A", "套餐B", "套餐C", "套餐D", "套餐E", "套餐F" };
 
 	private ListView listView;
 	private ListView listView2 ;
@@ -45,7 +47,7 @@ public class FoodMenuFragment extends Fragment {
 	List<Integer> nums = new ArrayList<Integer>();
 
 	private void initData(){
-		String[] arr = new String[] { "套餐A", "套餐B", "套餐C", "套餐D", "套餐E", "套餐F" };
+
 
 		String[] arr2 = new String[] { "food1", "food2", "food3", "food4", "food5" };
 		String[] arr3 = new String[] {  "food1", "food2", "food3", "food4", "food5", "food6" };
@@ -107,8 +109,9 @@ public class FoodMenuFragment extends Fragment {
 	private void initView()
 	{
 		//菜品种类的listView
-		listView.setAdapter(new ArrayAdapter<String>(getActivity(),
-				android.R.layout.simple_expandable_list_item_1, foodType));
+		MyFoodTypeListViewAdapter myFoodTypeListViewAdapter = new MyFoodTypeListViewAdapter(getActivity(),foodType);
+
+		listView.setAdapter(new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,foodType));
 
 		/*list = new ArrayList<String>();
 
@@ -238,13 +241,40 @@ public class FoodMenuFragment extends Fragment {
 		}
 
 	}*/
-	private static class  MyListGroupAdapter extends ArrayAdapter{
+
+
+	private static class MyFoodTypeListViewAdapter extends ArrayAdapter{
+		private ArrayList arrayList;
+		public MyFoodTypeListViewAdapter(Context context,ArrayList<String> arrayList){
+			super(context,0);
+			this.arrayList = arrayList;
+		}
+
+		@Override
+		public View getView(int position, View convertView1, ViewGroup parent) {
+			View view = convertView1;
+			view = LayoutInflater.from(getContext()).inflate(R.layout.food_type, null);
+			view.setMinimumHeight(800);
+			Log.d("text",getItem(position).toString());
+			Log.d("number",position+"");
+			TextView textView = (TextView) view.findViewById(R.id.food_type_text);
+			textView.setText(getItem(position).toString());
+			return view;
+		}
+	}
+
+
+
+
+
+	private static class  MyListGroupAdapter extends ArrayAdapter {
 		private ArrayList listType;
 
-		public MyListGroupAdapter(Context context, ArrayList<String> all,ArrayList<String> listType) {
-			super(context,0,all);
+		public MyListGroupAdapter(Context context, ArrayList<String> all, ArrayList<String> listType) {
+			super(context, 0, all);
 			this.listType = listType;
 		}
+
 
 
 
@@ -260,8 +290,7 @@ public class FoodMenuFragment extends Fragment {
 			View view = convertView;
 			if(listType.contains(getItem(position))){
 				view = LayoutInflater.from(getContext()).inflate(R.layout.group_list_item_tag, null);
-				Log.d("text",getItem(position).toString());
-				Log.d("number",position+"");
+
 			}else{
 				view = LayoutInflater.from(getContext()).inflate(R.layout.group_list_item, null);
 			}
