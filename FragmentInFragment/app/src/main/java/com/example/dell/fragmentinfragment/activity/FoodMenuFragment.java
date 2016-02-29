@@ -1,6 +1,8 @@
 package com.example.dell.fragmentinfragment.activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,7 +17,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +33,7 @@ import java.util.List;
 public class FoodMenuFragment extends Fragment {
 
 	private static final String TAG = "MainActivity";
-	String[] arr = new String[] { "套餐A", "套餐B", "套餐C", "套餐D", "套餐E", "套餐F" };
+	/*String[] arr = new String[] { "套餐A", "套餐B", "套餐C", "套餐D", "套餐E", "套餐F" };*/
 
 	private ListView listView;
 	private ListView listView2 ;
@@ -60,9 +64,15 @@ public class FoodMenuFragment extends Fragment {
 		String[] arr6 = new String[] {  "food", "food", "food" };
 		String[] arr7 = new String[] { "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food", "food" };
 
-		for (int i = 0; i < arr.length; i++) {
+		/*for (int i = 0; i < arr.length; i++) {
 			foodType.add(arr[i]);
-		}
+		}*/
+        foodType.add("套餐A");
+        foodType.add("套餐B");
+        foodType.add("套餐C");
+        foodType.add("套餐D");
+        foodType.add("套餐E");
+        foodType.add("套餐F");
 
 		String[][] arr8 = new String[][] { arr2, arr3, arr4, arr5, arr6, arr7 };
 		for (int i = 0; i < foodType.size(); i++) {
@@ -120,39 +130,43 @@ public class FoodMenuFragment extends Fragment {
 	{
 		//菜品种类的listView
 
-		listView.setAdapter(new ArrayAdapter<String>(getActivity(),R.layout.food_type,foodType));
+		listView.setAdapter(new ArrayAdapter<String>(getActivity(), R.layout.food_type, foodType));
 		/**
 		 * 下面这个函数表示点了种类表中的item中，item变色，然后右边的菜品列表跳转的当前种类置顶
 		 */
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position,
-									long id) {
-				for (int i = 0; i < listView.getChildCount(); i++) {
-					if (i == position) {
-						view.setBackgroundColor(Color.rgb(100, 100, 100));
-					} else {
-						view.setBackgroundColor(Color.TRANSPARENT);
-					}
-				}
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                for (int i = 0; i < listView.getChildCount(); i++) {
+                    if (i == position) {
+                        view.setBackgroundColor(Color.rgb(100, 100, 100));
+                    } else {
+                        view.setBackgroundColor(Color.TRANSPARENT);
+                    }
+                }
 
-				listView2.setSelection(nums.get(position));
-				Log.d("position", "" + nums.get(position));
+                listView2.setSelection(nums.get(position));
+                Log.d("position", "" + nums.get(position));
 
-			}
-		});
+            }
+        });
 
 
 
 		Log.i(TAG, "nums.size()是否等于arr8.length" + (nums.size() == foodType.size() + 1));
 		/*listView2 = (ListView) getActivity().findViewById(R.id.listView2);*/
-		listView2.setAdapter(new MyListGroupAdapter(getActivity(), allFood, foodType));
-		listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				Toast.makeText(getActivity(), "" + position, Toast.LENGTH_SHORT).show();
-			}
-		});
+        MyListGroupAdapter myListGroupAdapter = new MyListGroupAdapter(getActivity(), allFood, foodType);
+        myListGroupAdapter.notifyDataSetChanged();
+		listView2.setAdapter(myListGroupAdapter);
+		/*listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getActivity(), "" + position, Toast.LENGTH_SHORT).show();
+            }
+        });*/
+
+
 		listView2.setOnScrollListener(new AbsListView.OnScrollListener() {
 
 			@Override
@@ -295,11 +309,34 @@ public class FoodMenuFragment extends Fragment {
 		}
 	}*/
 
+	public void foodTypeModifyDialog(View view){
+		TableLayout foodTypeEditView = (TableLayout)getActivity().getLayoutInflater()
+				.inflate(R.layout.food_type_modify_dialog,null);
+		new AlertDialog.Builder(getActivity())
+				.setTitle("修改菜品种类")
+				.setView(foodTypeEditView).setPositiveButton("确定", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+
+			}
+		})
+				.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+
+					}
+				})
+				.create()
+				.show();
+
+
+	}
+
 
 	/**
 	 * 这是右边listview的适配器
 	 */
-	private static class  MyListGroupAdapter extends ArrayAdapter {
+	private  class  MyListGroupAdapter extends ArrayAdapter {
 		private ArrayList listType;
 
 		public MyListGroupAdapter(Context context, ArrayList<String> all, ArrayList<String> listType) {
@@ -317,12 +354,50 @@ public class FoodMenuFragment extends Fragment {
 			}
 			return super.isEnabled(position);
 		}
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
+
+        @Override
+        public void notifyDataSetChanged() {
+            super.notifyDataSetChanged();
+        }
+
+        @Override
+		public View getView( final int position,  View convertView,  ViewGroup parent) {
 			View view = convertView;
 			if(listType.contains(getItem(position))){
 				view = LayoutInflater.from(getContext()).inflate(R.layout.group_list_item_tag, null);
+				TextView textViewModify = (TextView)view.findViewById(R.id.tv_food_type_modify);
+				textViewModify.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						TableLayout foodTypeEditView = (TableLayout)LayoutInflater.from(getContext())
+								.inflate(R.layout.food_type_modify_dialog, null);
+						final EditText editText = (EditText)foodTypeEditView.findViewById(R.id.food_type_modify_edit);
+						editText.setText(getItem(position).toString());
 
+
+						new AlertDialog.Builder(getContext())
+								.setTitle("修改菜品种类")
+								.setView(foodTypeEditView).setPositiveButton("确定", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								String editFoodType = editText.getText().toString();
+								int index = listType.indexOf(getItem(position));
+								listType.set(index,editFoodType);
+                                foodType.set(index,editFoodType);
+                                allFood.set(position,editFoodType);
+							}
+						})
+								.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+									@Override
+									public void onClick(DialogInterface dialog, int which) {
+
+									}
+								})
+								.create()
+								.show();
+
+					}
+				});
 			}else{
 				view = LayoutInflater.from(getContext()).inflate(R.layout.group_list_item, null);
 			}
@@ -332,6 +407,7 @@ public class FoodMenuFragment extends Fragment {
 
 			return view;
 		}
+
 
 
 
