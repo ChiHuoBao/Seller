@@ -20,7 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.dell.fragmentinfragment.FoodMenuFragment;
+import com.example.dell.fragmentinfragment.activity.FoodMenuFragment;
 import com.example.dell.fragmentinfragment.R;
 
 import java.util.ArrayList;
