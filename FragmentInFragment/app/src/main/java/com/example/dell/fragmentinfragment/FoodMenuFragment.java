@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.AndroidCharacter;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -19,6 +21,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class FoodMenuFragment extends Fragment {
 
@@ -113,25 +117,34 @@ public class FoodMenuFragment extends Fragment {
 	private void initView()
 	{
 		//菜品种类的listView
-		MyFoodTypeListViewAdapter myFoodTypeListViewAdapter = new MyFoodTypeListViewAdapter(getActivity(),foodType);
 
-		listView.setAdapter(new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,foodType));
+		listView.setAdapter(new ArrayAdapter<String>(getActivity(),R.layout.food_type,foodType));
+		/**
+		 * 下面这个函数表示点了种类表中的item中，item变色，然后右边的菜品列表跳转的当前种类置顶
+		 */
+		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position,
+									long id) {
+				for (int i = 0; i < listView.getChildCount(); i++) {
+					if (i == position) {
+						view.setBackgroundColor(Color.rgb(100, 100, 100));
+					} else {
+						view.setBackgroundColor(Color.TRANSPARENT);
+					}
+				}
 
-		/*list = new ArrayList<String>();
+				listView2.setSelection(nums.get(position));
+				Log.d("position", "" + nums.get(position));
 
-		for (int j = 0; j < arr8.length; j++)
-		{
-			for (int j2 = 0; j2 < arr8[j].length; j2++)
-			{
-				list.add(arr8[j][j2]);
 			}
-		}*/
+		});
 
 
 
 		Log.i(TAG, "nums.size()是否等于arr8.length" + (nums.size() == foodType.size() + 1));
 		/*listView2 = (ListView) getActivity().findViewById(R.id.listView2);*/
-		listView2.setAdapter(new MyListGroupAdapter(getActivity(),allFood,foodType));
+		listView2.setAdapter(new MyListGroupAdapter(getActivity(), allFood, foodType));
 		listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -184,26 +197,7 @@ public class FoodMenuFragment extends Fragment {
 			}
 		});
 
-		/**
-		 * 下面这个函数表示点了种类表中的item中，item变色，然后右边的菜品列表跳转的当前种类置顶
-		 */
-		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position,
-									long id) {
-				for (int i = 0; i < listView.getChildCount(); i++) {
-					if (i == position) {
-						view.setBackgroundColor(Color.rgb(100, 100, 100));
-					} else {
-						view.setBackgroundColor(Color.TRANSPARENT);
-					}
-				}
 
-				listView2.setSelection(nums.get(position));
-				Log.d("position", "" + nums.get(position));
-
-			}
-		});
 
 	}
 
@@ -247,30 +241,62 @@ public class FoodMenuFragment extends Fragment {
 	}*/
 
 
-	private static class MyFoodTypeListViewAdapter extends ArrayAdapter{
+	/**
+	 * 左边菜品种类的适配器
+	 */
+	/*private static class MyFoodTypeListViewAdapter extends ArrayAdapter{
 		private ArrayList arrayList;
-		public MyFoodTypeListViewAdapter(Context context,ArrayList<String> arrayList){
-			super(context,0);
+		private int resourceId;
+		public MyFoodTypeListViewAdapter(Context context, int resource,ArrayList arrayList) {
+			super(context, resource);
 			this.arrayList = arrayList;
+			this.resourceId = resource;
+		}
+
+
+
+		@Override
+		public long getItemId(int position) {
+			return position;
 		}
 
 		@Override
+		public int getCount() {
+			return arrayList.size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			return null;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			View view = new View(getContext());
+			if (arrayList.contains(getItem(position))){
+				view = LayoutInflater.from(getContext()).inflate(resourceId,null);
+				TextView textView = (TextView)view.findViewById(R.id.food_type_text);
+				textView.setText(getItem(position).toString());
+			}
+
+			return view ;
+		}
+		@Override
 		public View getView(int position, View convertView1, ViewGroup parent) {
 			View view = convertView1;
-			view = LayoutInflater.from(getContext()).inflate(R.layout.food_type, null);
-			view.setMinimumHeight(800);
+			view = LayoutInflater.from(getView()).inflate(R.layout.food_type, null);
 			Log.d("text",getItem(position).toString());
 			Log.d("number",position+"");
 			TextView textView = (TextView) view.findViewById(R.id.food_type_text);
 			textView.setText(getItem(position).toString());
 			return view;
 		}
-	}
+	}*/
 
 
-
-
-
+	/**
+	 * 这是右边listview的适配器
+	 */
 	private static class  MyListGroupAdapter extends ArrayAdapter {
 		private ArrayList listType;
 
