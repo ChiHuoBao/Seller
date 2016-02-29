@@ -119,4 +119,11 @@
     <color name="transparent">#00000000</color>
     <color name="wait_for_process">#fffe6000</color>
     <color name="white">#ffffffff</color>
+
+
+    <color name="napos_dark_sky_blue">#ff427fed</color>
+    <color name="spec_gray">#ffeeeeee</color>
+    <color name="spec_white">#ffffffff</color>
+    <color name="spec_layout_bg_pressed">#ffebebeb</color>
+    <color name="spec_text_gray">#ff808080</color>
 </resources>
