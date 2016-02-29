@@ -1,4 +1,4 @@
-package com.example.dell.fragmentinfragment;
+package com.example.dell.fragmentinfragment.activity;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -18,6 +18,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.dell.fragmentinfragment.R;
 
 import java.util.ArrayList;
 import java.util.List;
