@@ -78,15 +78,47 @@
             android:layout_height="wrap_content"
             android:background="@drawable/common_bg_with_line"
             android:orientation="vertical">
-           <com.example.dell.fragmentinfragment.appwidget.SettingsItemView
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               app:leftBackground="@drawable/icon_setting_vibration"
-               app:rightBackground="@drawable/icon_setting_right_arraw"
-               app:settingTitle="saad"
-               app:settingTitleTextColor="@color/black">
 
-           </com.example.dell.fragmentinfragment.appwidget.SettingsItemView>
+            <com.example.dell.fragmentinfragment.appwidget.SettingsItemView
+                android:id="@+id/settings_connect_manager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:leftBackground="@drawable/icon_setting_connect_manager"
+                app:rightBackground="@drawable/setting_arrow"
+                app:settingTitle="联系市场经理"
+                app:settingTitleTextColor="@color/black">
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:background="@color/app_bg" />
+            </com.example.dell.fragmentinfragment.appwidget.SettingsItemView>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/app_bg" />
+
+            <com.example.dell.fragmentinfragment.appwidget.SettingsItemView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:leftBackground="@drawable/icon_setting_connect_service"
+                app:rightBackground="@drawable/setting_arrow"
+                app:settingTitle="联系客服"
+                app:settingTitleTextColor="@color/black"></com.example.dell.fragmentinfragment.appwidget.SettingsItemView>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/app_bg" />
+            <com.example.dell.fragmentinfragment.appwidget.SettingsItemView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:leftBackground="@drawable/icon_setting_feedback"
+                app:rightBackground="@drawable/setting_arrow"
+                app:settingTitle="帮助与反馈"
+                app:settingTitleTextColor="@color/black"></com.example.dell.fragmentinfragment.appwidget.SettingsItemView>
+
         </LinearLayout>
 
         <LinearLayout
@@ -96,6 +128,13 @@
             android:background="@drawable/common_bg_with_line"
             android:orientation="vertical">
 
+            <com.example.dell.fragmentinfragment.appwidget.SettingsItemView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                app:settingTitle="系统版本"
+                app:settingTitleTextColor="@color/black"></com.example.dell.fragmentinfragment.appwidget.SettingsItemView>
 
         </LinearLayout>
 

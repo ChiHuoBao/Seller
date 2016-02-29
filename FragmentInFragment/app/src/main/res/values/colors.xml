@@ -126,4 +126,5 @@
     <color name="spec_white">#ffffffff</color>
     <color name="spec_layout_bg_pressed">#ffebebeb</color>
     <color name="spec_text_gray">#ff808080</color>
+    <color name="app_bg">#eeeeee</color>
 </resources>

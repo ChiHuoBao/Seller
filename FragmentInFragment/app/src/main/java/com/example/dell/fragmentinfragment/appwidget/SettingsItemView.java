@@ -49,8 +49,8 @@ public class SettingsItemView extends RelativeLayout {
 
     public SettingsItemView(Context context, AttributeSet attrs) {
         super(context, attrs);
-// 设置topbar的背景
-        setBackgroundColor(0xFFF59563);
+        // 设置topbar的背景
+        setBackgroundColor(0xffffffff);
         // 通过这个方法，将你在atts.xml中定义的declare-styleable
         // 的所有属性的值存储到TypedArray中
         TypedArray ta = context.obtainStyledAttributes(attrs,
@@ -80,10 +80,10 @@ public class SettingsItemView extends RelativeLayout {
         // 值就来源于我们在引用的xml文件中给对应属性的赋值
 
         mLeftImageView.setImageDrawable(mLeftBackground);
-        mLeftImageView.setScaleType(ImageView.ScaleType.CENTER);
+        mLeftImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
         mRightImageView.setImageDrawable(mRightBackground);
-
+        mLeftImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
         mTextView.setText(mTitle);
         mTextView.setTextColor(mTitleTextColor);
@@ -92,22 +92,25 @@ public class SettingsItemView extends RelativeLayout {
 
         // 为组件元素设置相应的布局元素
         mLeftParams = new LayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.MATCH_PARENT);
+                60,
+                60);
         mLeftParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT, TRUE);
+        mLeftParams.addRule(RelativeLayout.CENTER_VERTICAL, TRUE);
         // 添加到ViewGroup
         addView(mLeftImageView, mLeftParams);
 
         mRightParams = new LayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.MATCH_PARENT);
+                150,
+                50);
         mRightParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, TRUE);
+        mRightParams.addRule(RelativeLayout.CENTER_VERTICAL, TRUE);
         addView(mRightImageView, mRightParams);
 
         mTextParams = new LayoutParams(
                 LayoutParams.WRAP_CONTENT,
                 LayoutParams.MATCH_PARENT);
         mTextParams.addRule(RelativeLayout.CENTER_IN_PARENT, TRUE);
+
         addView(mTextView, mTextParams);
 
         // 按钮的点击事件，不需要具体的实现，
