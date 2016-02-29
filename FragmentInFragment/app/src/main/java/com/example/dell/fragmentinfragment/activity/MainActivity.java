@@ -274,15 +274,15 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
          */
         public  void changeCursor(int index){
             if (index == 0){
-                textView1.setBackgroundColor(Color.parseColor("#0099cc"));
+                textView1.setBackgroundColor(Color.parseColor("#0088ff"));
                 textView1.setTextColor(Color.parseColor("#ffffff"));
                 textView2.setBackgroundColor(Color.parseColor("#ffffff"));
-                textView2.setTextColor(Color.parseColor("#0099cc"));
+                textView2.setTextColor(Color.parseColor("#0088ff"));
             }else {
-                textView2.setBackgroundColor(Color.parseColor("#0099cc"));
+                textView2.setBackgroundColor(Color.parseColor("#0088ff"));
                 textView2.setTextColor(Color.parseColor("#ffffff"));
                 textView1.setBackgroundColor(Color.parseColor("#ffffff"));
-                textView1.setTextColor(Color.parseColor("#0099cc"));
+                textView1.setTextColor(Color.parseColor("#0088ff"));
 
             }
         }

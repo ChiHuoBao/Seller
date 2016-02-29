@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="6.0"
                   xmlns:android="http://schemas.android.com/apk/res/android">
-        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/order_search_result_item_idview" android:background="@color/napos_blue_deep" android:layout_width="52.0dip" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/order_search_result_item_idview" android:background="#0088ff" android:layout_width="52.0dip" android:layout_height="fill_parent">
             <TextView android:textSize="25.0sp" android:typeface="sans" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="\#" android:includeFontPadding="false" />
             <TextView android:textSize="25.0sp" android:typeface="sans" android:textColor="@color/white" android:id="@+id/order_search_result_item_id" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:text="\ 16" android:includeFontPadding="false" />
         </LinearLayout>
@@ -41,7 +41,7 @@
         </LinearLayout>
         <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
             <TextView android:textSize="18.0sp" android:textColor="@color/napos_text_black_deep" android:gravity="center" android:id="@+id/reject_order" android:background="@drawable/selector_cancel_bg" android:layout_width="0.0dip" android:layout_height="58.0dip" android:text="设为无效" android:layout_weight="1.0" />
-            <TextView android:textSize="18.0sp" android:textColor="@color/white" android:gravity="center" android:id="@+id/accept_order" android:background="@drawable/selector_button_blue_deep" android:layout_width="0.0dip" android:layout_height="58.0dip" android:text="确认订单" android:layout_weight="1.0" />
+            <TextView android:textSize="18.0sp" android:textColor="@color/white" android:gravity="center" android:id="@+id/accept_order" android:background="#0088ff" android:layout_width="0.0dip" android:layout_height="58.0dip" android:text="确认订单" android:layout_weight="1.0" />
         </LinearLayout>
 
 </LinearLayout>

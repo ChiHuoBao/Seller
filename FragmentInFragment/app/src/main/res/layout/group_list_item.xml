@@ -4,6 +4,7 @@
     android:layout_height="160dp"
     android:background="#ffffff"
     android:orientation="vertical"
+    android:clickable="true"
     >
     <RelativeLayout
         android:layout_width="match_parent"
@@ -81,26 +82,26 @@
         android:layout_below="@+id/item_information"
         >
         <Button
-            android:layout_width="80dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="25dp"
             android:layout_marginRight="15dp"
             android:background="#66666666"
             android:text="编辑"
             android:gravity="center"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:id="@+id/item_food_detail_modify"
             android:layout_toLeftOf="@+id/item_food_detail_delete"
             android:textColor="@android:color/black"/>
         <Button
-            android:layout_width="80dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_marginTop ="25dp"
             android:layout_marginRight="20dp"
             android:background="#66666666"
             android:text="停售"
             android:gravity="center"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:id="@+id/item_food_detail_delete"
             android:layout_alignParentRight="true"
             android:textColor="@android:color/black"
