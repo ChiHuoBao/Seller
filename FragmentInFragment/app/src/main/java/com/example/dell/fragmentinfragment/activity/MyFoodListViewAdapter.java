@@ -1,8 +1,8 @@
 package com.example.dell.fragmentinfragment.activity;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -157,51 +157,27 @@ public class MyFoodListViewAdapter extends BaseAdapter {
                 break;
             case ITEM_NORMAL:
                 viewHolderNormal.tvFoodName.setText(getItem(position).toString());
+                viewHolderNormal.btnSoldOut.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        /**
+                         * 菜品售罄
+                         */
+                    }
+                });
+                viewHolderNormal.btnModify.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        /**
+                         * 编辑菜品详细信息
+                         */
+                    }
+                });
                 break;
             }
 
         return convertView;
-        /*View view =null;
 
-            if (foodType.contains(getItem(position))){
-                view = inflater.inflate(R.layout.group_list_item_tag,null);
-                TextView textViewModify = (TextView)view.findViewById(R.id.tv_food_type_modify);
-                textViewModify.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        TableLayout foodTypeEditView = (TableLayout) inflater.inflate(R.layout.food_type_modify_dialog, null);
-                        final EditText editText = (EditText)foodTypeEditView.findViewById(R.id.food_type_modify_edit);
-                        editText.setText(getItem(position).toString());
-
-                        new AlertDialog.Builder(context)
-                                .setTitle("修改菜品种类")
-                                .setView(foodTypeEditView).setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                String editFoodType = editText.getText().toString();
-                                int index = foodType.indexOf(getItem(position));
-                                foodType.set(index,editFoodType);
-                                allFood.set(position,editFoodType);
-                            }
-                        })
-                                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-
-                                    }
-                                })
-                                .create()
-                                .show();
-
-                    }
-                });
-            }else {
-                view = inflater.inflate(R.layout.group_list_item, null);
-            }
-            TextView textView = (TextView) view.findViewById(R.id.group_list_item_text);
-            textView.setText(getItem(position).toString());
-
-        return  view;*/
 
     }
 

@@ -39,9 +39,7 @@ public class FoodMenuFragment extends Fragment {
 	private ListView listView;
 	private ListView listView2 ;
 	private Button mButton;
-	/**
-	 * 本来想做标题停留在最上方的，不想想了
-	 */
+
 	TextView textView;
 	/**
 	 * 左边listview的要使用的数组
@@ -55,20 +53,13 @@ public class FoodMenuFragment extends Fragment {
 	List<Integer> nums = new ArrayList<Integer>();
 
 	private void initData(){
-
-
 		String[] arr2 = new String[] { "food11", "food12", "food13", "food14", "food15" };
 		String[] arr3 = new String[] {  "food21", "food22", "food23", "food24", "food25", "food26" };
 		String[] arr4 = new String[] {  "food31", "food32", "food33", "food34" };
-		String[] arr5 = new String[] {  "food41", "food42", "food43", "food44", "food45", "food46",
-				"food" };
+		String[] arr5 = new String[] {  "food41", "food42", "food43", "food44", "food45", "food46", "food" };
 		String[] arr6 = new String[] {  "food51", "food52", "food53" };
-		String[] arr7 = new String[] { "food61", "food62", "food63", "food64", "food65", "food66", "food67",
-				"food68" };
+		String[] arr7 = new String[] { "food61", "food62", "food63", "food64", "food65", "food66", "food67", "food68" };
 
-		/*for (int i = 0; i < arr.length; i++) {
-			foodType.add(arr[i]);
-		}*/
         foodType.add("套餐A");
         foodType.add("套餐B");
         foodType.add("套餐C");
@@ -151,34 +142,31 @@ public class FoodMenuFragment extends Fragment {
 	private void initView()
 	{
 		//菜品种类的listView
+		MyFoodListViewAdapter myFoodListViewAdapter = new MyFoodListViewAdapter(getActivity(),allFood,foodType);
+		myFoodListViewAdapter.notifyDataSetChanged();
 
 		listView.setAdapter(new ArrayAdapter<String>(getActivity(), R.layout.food_type, foodType));
+		listView2.setAdapter(myFoodListViewAdapter);
 		/**
 		 * 下面这个函数表示点了种类表中的item中，item变色，然后右边的菜品列表跳转的当前种类置顶
 		 */
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                                    long id) {
-                for (int i = 0; i < listView.getChildCount(); i++) {
-                    if (i == position) {
-                        view.setBackgroundColor(Color.rgb(100, 100, 100));
-                    } else {
-                        view.setBackgroundColor(Color.TRANSPARENT);
-                    }
-                }
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position,
+									long id) {
+				for (int i = 0; i < listView.getChildCount(); i++) {
+					if (i == position) {
+						view.setBackgroundColor(Color.rgb(100, 100, 100));
+					} else {
+						view.setBackgroundColor(Color.TRANSPARENT);
+					}
+				}
 
-                listView2.setSelection(nums.get(position));
-                Log.d("position", "" + nums.get(position));
+				listView2.setSelection(nums.get(position));
+				Log.d("position", "" + nums.get(position));
 
-            }
-        });
-
-		Log.i(TAG, "nums.size()是否等于arr8.length" + (nums.size() == foodType.size() + 1));
-		MyFoodListViewAdapter myFoodListViewAdapter = new MyFoodListViewAdapter(getActivity(),allFood,foodType);
-		myFoodListViewAdapter.notifyDataSetChanged();
-		listView2.setAdapter(myFoodListViewAdapter);
-
+			}
+		});
 
 		listView2.setOnScrollListener(new AbsListView.OnScrollListener() {
 			@Override
@@ -191,7 +179,6 @@ public class FoodMenuFragment extends Fragment {
 			@Override
 			public void onScroll(AbsListView view, int firstVisibleItem,
 								 int visibleItemCount, int totalItemCount) {
-
 				if (nums.contains(firstVisibleItem) && listView.getChildCount() > 0) {
 
 					for (int i = 0; i < listView.getChildCount(); i++) {
@@ -200,80 +187,13 @@ public class FoodMenuFragment extends Fragment {
 									Color.rgb(100, 100, 100));
 						} else {
 							listView.getChildAt(i).setBackgroundColor(Color.TRANSPARENT);
-
 						}
-
-
 					}
-
-
 				}
 			}
 		});
 
-
-
 	}
-
-
-
-
-	/**
-	 * 左边菜品种类的适配器
-	 */
-	/*private static class MyFoodTypeListViewAdapter extends ArrayAdapter{
-		private ArrayList arrayList;
-		private int resourceId;
-		public MyFoodTypeListViewAdapter(Context context, int resource,ArrayList arrayList) {
-			super(context, resource);
-			this.arrayList = arrayList;
-			this.resourceId = resource;
-		}
-
-
-
-		@Override
-		public long getItemId(int position) {
-			return position;
-		}
-
-		@Override
-		public int getCount() {
-			return arrayList.size();
-		}
-
-		@Override
-		public Object getItem(int position) {
-			return null;
-		}
-
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			View view = new View(getContext());
-			if (arrayList.contains(getItem(position))){
-				view = LayoutInflater.from(getContext()).inflate(resourceId,null);
-				TextView textView = (TextView)view.findViewById(R.id.food_type_text);
-				textView.setText(getItem(position).toString());
-			}
-
-			return view ;
-		}
-		@Override
-		public View getView(int position, View convertView1, ViewGroup parent) {
-			View view = convertView1;
-			view = LayoutInflater.from(getView()).inflate(R.layout.food_type, null);
-			Log.d("text",getItem(position).toString());
-			Log.d("number",position+"");
-			TextView textView = (TextView) view.findViewById(R.id.food_type_text);
-			textView.setText(getItem(position).toString());
-			return view;
-		}
-	}*/
-
-
-
-
-
 
 
 
