@@ -409,7 +409,7 @@ public class PullToRefreshView extends ViewGroup {
         int right = getPaddingRight();
         int bottom = getPaddingBottom();
 
-        mTarget.layout(left, top , left + width - right, top + height - bottom );
+        mTarget.layout(left, top + mCurrentOffsetTop, left + width - right, top + height - bottom + mCurrentOffsetTop);
         mRefreshView.layout(left, top, left + width - right, top + height - bottom);
     }
 

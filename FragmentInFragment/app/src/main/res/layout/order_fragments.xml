@@ -9,9 +9,9 @@
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="已处理"
-            android:background="@android:color/holo_blue_dark"
+            android:layout_height="40dp"
+            android:text="未处理"
+            android:background="#0088ff"
             android:id="@+id/tv_have_handle"
             android:textColor="@android:color/white"
             android:layout_weight="1"
@@ -19,11 +19,11 @@
             android:gravity="center"/>
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="未处理"
+            android:layout_height="40dp"
+            android:text="已处理"
             android:background="@android:color/white"
             android:id="@+id/tv_not_handle"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="#0088ff"
             android:layout_weight="1"
             android:textSize="20sp"
             android:gravity="center"
