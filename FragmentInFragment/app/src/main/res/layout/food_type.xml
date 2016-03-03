@@ -17,8 +17,8 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/food_type_text"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="50dp"
     android:textAppearance="?android:attr/textAppearanceListItemSmall"
     android:gravity="center"
-    android:textSize="18sp"
+    android:textSize="15sp"
     />

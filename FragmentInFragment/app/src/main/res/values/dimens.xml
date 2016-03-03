@@ -4,6 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="list_item_height">222dp</dimen>
+<<<<<<< HEAD
     <dimen name="line">3dp</dimen>
     <dimen name="text_size_toolbar_title">25sp</dimen>
     <dimen name="text_size_profile_toolbar_title">20sp</dimen>
@@ -19,4 +20,16 @@
 
     <!-- *height_profile_picture_with_toolbar* - half of *size_button_message* -->
     <dimen name="margin_top_button_message">290dp</dimen>
+=======
+    <dimen name="common_margin_size">15dp</dimen>
+    <dimen name="setting_restaurant_icon_size">54.0dip</dimen>
+    <dimen name="setting_info_container_height">77.5dip</dimen>
+
+    <dimen name="spec_large">18.0sp</dimen>
+    <dimen name="spec_mini">12.0sp</dimen>
+    <dimen name="spec_line_margin_half">4.0dip</dimen>
+    <dimen name="cell_height">44.0dip</dimen>
+    <dimen name="spec_header">20.0sp</dimen>
+    <dimen name="spec_medium">15.0sp</dimen>
+>>>>>>> d273a515ea32f2075b5c60d958acbe14dd9c8ab4
 </resources>
