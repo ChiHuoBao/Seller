@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.example.dell.fragmentinfragment.Order;
+import com.example.dell.fragmentinfragment.OrderAdpter;
 import com.example.dell.fragmentinfragment.R;
 import com.yalantis.phoenix.PullToRefreshView;
 
@@ -52,7 +54,7 @@ public class ListViewFragment extends BaseRefreshFragment {
 //                );
         Log.i("!!!!!!!!",lsit.get(0).getAdddress());
         Log.i("!!!!!!!!",lsit.get(1).getAdddress());
-         OrderAdpter simpleAdapter=new OrderAdpter(lsit,R.layout.order_processing_fragment,getActivity());
+        OrderAdpter simpleAdapter=new OrderAdpter(lsit,R.layout.order_processing_fragment,getActivity());
         int j=simpleAdapter.getCount();
         mListView.setAdapter(simpleAdapter);
         mPullToRefreshView = (PullToRefreshView) rootView.findViewById(R.id.pull_to_refresh);

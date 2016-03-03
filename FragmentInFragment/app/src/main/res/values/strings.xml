@@ -1,7 +1,7 @@
 ﻿<resources>
     <string name="app_name">FragmentInFragment</string>
     <string name="action_settings">Settings</string>
-<<<<<<< HEAD
+
     <string name="title_activity_main2">Main2Activity</string>
     <string-array name="array_names">
         <item>"Anastasia Druzhinina"</item>
