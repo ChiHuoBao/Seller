@@ -16,7 +16,7 @@ import com.example.dell.chihuobao.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends Activity implements ViewPager.OnPageChangeListener {
+public class MainActivity extends BaseActivity implements ViewPager.OnPageChangeListener {
     private ViewPager viewpager;
     private View view1,view2,view3;//三个界面
     private List<View> view=new ArrayList<>();//保存各种界面的链表
