@@ -43,12 +43,12 @@
     <dimen name="card_margin_top">12.0dip</dimen>
     <dimen name="cell_height">48.0dip</dimen>
     <dimen name="cell_padding">15.0dip</dimen>
-    <item type="dimen" name="dialog_fixed_height_major">79.99999%</item>
-    <item type="dimen" name="dialog_fixed_height_minor">100.0%</item>
+    <item name="dialog_fixed_height_major" type="dimen">79.99999%</item>
+    <item name="dialog_fixed_height_minor" type="dimen">100.0%</item>
     <dimen name="dialog_fixed_width_major">320.0dip</dimen>
     <dimen name="dialog_fixed_width_minor">320.0dip</dimen>
-    <item type="dimen" name="disabled_alpha_material_dark">0.3</item>
-    <item type="dimen" name="disabled_alpha_material_light">0.26</item>
+    <item name="disabled_alpha_material_dark" type="dimen">0.3</item>
+    <item name="disabled_alpha_material_light" type="dimen">0.26</item>
     <dimen name="edit_button_margin">8.0dip</dimen>
     <dimen name="edit_text_height">40.0dip</dimen>
     <dimen name="food_margin_left_right">15.0dip</dimen>
