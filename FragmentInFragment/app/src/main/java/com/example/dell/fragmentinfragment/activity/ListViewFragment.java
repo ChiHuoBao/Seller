@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.dell.fragmentinfragment.Order;
-import com.example.dell.fragmentinfragment.OrderAdpter;
+import com.example.dell.fragmentinfragment.bean.Order;
+import com.example.dell.fragmentinfragment.util.OrderAdapter;
 import com.example.dell.fragmentinfragment.R;
 import com.yalantis.phoenix.PullToRefreshView;
 
@@ -22,10 +22,10 @@ public class ListViewFragment extends BaseRefreshFragment {
 
     private PullToRefreshView mPullToRefreshView;
 
-    private List<Order> lsit;
+    private List<Order> list;
     private  ListView mListView;
     private String[] order_search_result_item_id=new String[]{"14","15","16"};
-    private String[] telphone=new String[]{"123456","545646546546","9999999"};
+    private String[] telephone=new String[]{"123456","545646546546","9999999"};
     private String[] time=new String[]{"10:00","11:30","12:00"};
     private String[] address=new String[]{"东南大学","文汇人才公寓","三江院"};
     private String[] orderId=new String[]{"11111111111","222222222","33333333"};
@@ -41,7 +41,7 @@ public class ListViewFragment extends BaseRefreshFragment {
          mListView = (ListView) rootView.findViewById(R.id.list_view);
         //listView.setAdapter(simpleAdapter);
         //mListView.setAdapter(new SampleAdapter(getActivity(), R.layout.list_item, mSampleList));
-        lsit=new ArrayList<Order>();
+        list=new ArrayList<Order>();
         initData();
 //        List<Map<String,Object>> listItems=new ArrayList<Map<String,Object>>();
 //
@@ -52,9 +52,9 @@ public class ListViewFragment extends BaseRefreshFragment {
 //                        new int[]{R.id.order_search_result_item_telphone,R.id.order_search_result_item_time,R.id.order_search_result_item_address,R.id.order_search_result_item_orderId,
 //                                R.id.order_item_price,R.id.order_item_count,R.id.order_item_name,R.id.order_notice,R.id.order_receipt}
 //                );
-        Log.i("!!!!!!!!",lsit.get(0).getAdddress());
-        Log.i("!!!!!!!!",lsit.get(1).getAdddress());
-        OrderAdpter simpleAdapter=new OrderAdpter(lsit,R.layout.order_processing_fragment,getActivity());
+        Log.i("!!!!!!!!",list.get(0).getAdddress());
+        Log.i("!!!!!!!!",list.get(1).getAdddress());
+        OrderAdapter simpleAdapter=new OrderAdapter(list,R.layout.order_processing_fragment,getActivity());
         int j=simpleAdapter.getCount();
         mListView.setAdapter(simpleAdapter);
         mPullToRefreshView = (PullToRefreshView) rootView.findViewById(R.id.pull_to_refresh);
@@ -82,10 +82,10 @@ public class ListViewFragment extends BaseRefreshFragment {
             mOrder.setItem_price(item_price[i]);
             mOrder.setNotice(notice[i]);
             mOrder.setReceipt(receipt[i]);
-            mOrder.setTelphone(telphone[i]);
+            mOrder.setTelphone(telephone[i]);
             mOrder.setOrderId(orderId[i]);
             mOrder.setTime(time[i]);
-            lsit.add(mOrder);
+            list.add(mOrder);
         }
 
 

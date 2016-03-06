@@ -1,8 +1,12 @@
-package com.example.dell.fragmentinfragment;
+package com.example.dell.fragmentinfragment.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+
+import com.example.dell.fragmentinfragment.R;
+import com.example.dell.fragmentinfragment.bean.DeliverMan;
+import com.example.dell.fragmentinfragment.util.DeliverManAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +15,7 @@ public class DeliverManActivity extends AppCompatActivity {
     private List<DeliverMan> mDeliverMans;
     private ListView mListView;
     private String[] name=new String[]{"张三","李四","王五"};
-    private String[] telphone=new String[]{"123456","545646546546","9999999"};
+    private String[] telephone=new String[]{"123456","545646546546","9999999"};
     private int[] imageId=new int[]{R.drawable.anastasia,
             R.drawable.andriy,
             R.drawable.dmitriy,
@@ -30,8 +34,8 @@ public class DeliverManActivity extends AppCompatActivity {
         mDeliverMans=new ArrayList<DeliverMan>();
         mListView= (ListView) findViewById(R.id.list_view);
         initData();
-        DeliverManAdpter manAdpter=new DeliverManAdpter(mDeliverMans,R.layout.deliver_item_layout,this);
-        mListView.setAdapter(manAdpter);
+        DeliverManAdapter manAdapter=new DeliverManAdapter(mDeliverMans,R.layout.deliver_item_layout,this);
+        mListView.setAdapter(manAdapter);
 
 
 
@@ -41,7 +45,7 @@ public class DeliverManActivity extends AppCompatActivity {
             DeliverMan deliverMan=new DeliverMan();
             deliverMan.setImageId(imageId[i]);
             deliverMan.setName(name[i]);
-            deliverMan.setTelephone(telphone[i]);
+            deliverMan.setTelephone(telephone[i]);
             mDeliverMans.add(deliverMan);
         }
 

@@ -24,7 +24,9 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dell.fragmentinfragment.util.MyFoodListViewAdapter;
 import com.example.dell.fragmentinfragment.R;
+import com.example.dell.fragmentinfragment.util.MyFoodListViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
