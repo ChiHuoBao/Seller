@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.dell.fragmentinfragment"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -18,6 +18,11 @@ android {
         }
     }
 }
+repositories {
+    maven {
+        url "https://jitpack.io"
+    }
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -25,4 +30,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
     compile project(':library')
+
 }

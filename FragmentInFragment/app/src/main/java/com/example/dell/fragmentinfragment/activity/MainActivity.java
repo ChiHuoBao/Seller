@@ -28,7 +28,7 @@ import java.util.ArrayList;
 /**
  * 嵌套Fragment使用
  *
- * @author 农民伯伯
+ *
  * //@see http://www.cnblogs.com/over140/archive/2013/01/02/2842227.html
  *
  */
@@ -44,7 +44,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     private ImageButton mImgFrd;
     private ImageButton mImgAddress;
     private ImageButton mImgSetting;
-
+    //四个界面
     private Fragment tab01;
     private Fragment tab02;
     private Fragment tab03;
@@ -69,7 +69,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
     }
 
-
+//    初始化控件
     private void initView() {
         mTabWeixin = (LinearLayout)findViewById(R.id.id_tab_weixin);
         mTabFrd = (LinearLayout)findViewById(R.id.id_tab_frd);
@@ -83,7 +83,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     }
 
 
-
+    //点击相应按钮后触发的事件
     @Override
     public void onClick(View v) {
         resetImg();
@@ -103,7 +103,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 break;
         }
     }
-
+    //将Fragment隐藏的方法
     private void hideFragment(FragmentTransaction transaction) {
         if (tab01 != null) {
             transaction.hide(tab01);
@@ -120,22 +120,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
     }
 
-
+//实现导航栏图标变色的方法
     private void resetImg() {
-        mImgWeixin.setImageResource(R.drawable.tab_weixin_normal);
+        mImgWeixin.setImageResource(R.drawable.icon_processing);
         mImgFrd.setImageResource(R.drawable.tab_find_frd_normal);
         mImgAddress.setImageResource(R.drawable.tab_address_normal);
         mImgSetting.setImageResource(R.drawable.tab_settings_normal);
     }
-
-    private void addFragmentToStack(Fragment fragment) {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        //ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_in_left);
-        hideFragment(ft);
-        ft.replace(R.id.fragment_container, fragment);
-        ft.commit();
-    }
-
 
     private void setSelect(int i) {
         FragmentManager fm = getSupportFragmentManager();
@@ -153,7 +144,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 }else {
                     transaction.show(tab01);
                 }
-                mImgWeixin.setImageResource(R.drawable.tab_weixin_pressed);
+                mImgWeixin.setImageResource(R.drawable.icon_multi_order);
                 break;
             case 1:
                 if (tab02 == null) {
@@ -197,7 +188,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         private int screenW;
         private ArrayList<Fragment> fragmentListView;
 
-/*   */
+/*   通过此方法创建Fragment并且向其传达参数*/
         public  final static FragmentParent newInstance(int position) {
             FragmentParent f = new FragmentParent();
             Bundle args = new Bundle(2);
@@ -208,7 +199,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View convertView = inflater.inflate(R.layout.viewpager_fragments, container, false);
+            //将layout的xml布局文件实例化为View类对象
+            View convertView = inflater.inflate(R.layout.order_fragments, container, false);
             ViewPager pager = (ViewPager) convertView.findViewById(R.id.pager);
             textView1 = (TextView)convertView.findViewById(R.id.tv_have_handle);
              textView2 = (TextView)convertView.findViewById(R.id.tv_not_handle);
@@ -274,15 +266,15 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
          */
         public  void changeCursor(int index){
             if (index == 0){
-                textView1.setBackgroundColor(Color.parseColor("#0099cc"));
+                textView1.setBackgroundColor(Color.parseColor("#0088ff"));
                 textView1.setTextColor(Color.parseColor("#ffffff"));
                 textView2.setBackgroundColor(Color.parseColor("#ffffff"));
-                textView2.setTextColor(Color.parseColor("#0099cc"));
+                textView2.setTextColor(Color.parseColor("#0088ff"));
             }else {
-                textView2.setBackgroundColor(Color.parseColor("#0099cc"));
+                textView2.setBackgroundColor(Color.parseColor("#0088ff"));
                 textView2.setTextColor(Color.parseColor("#ffffff"));
                 textView1.setBackgroundColor(Color.parseColor("#ffffff"));
-                textView1.setTextColor(Color.parseColor("#0099cc"));
+                textView1.setTextColor(Color.parseColor("#0088ff"));
 
             }
         }
