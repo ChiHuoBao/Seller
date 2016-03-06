@@ -47,7 +47,7 @@ public class LoginActivity extends BaseActivity {
     @Event(R.id.login)
     private void onLoginClick(View view) {
         BaseLog.i("登录点击");
-        String s= null;
+        String s= "";
         try {
             s = HttpUtil.getURLResponse("http://www.baidu.com");
         } catch (Exception e) {
