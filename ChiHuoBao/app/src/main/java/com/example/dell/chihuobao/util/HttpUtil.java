@@ -38,44 +38,45 @@ public class HttpUtil {
      * @param urlString
      * @return
      */
-    public static String getURLResponse(String urlString){
+    public static String getURLResponse(String urlString) {
         HttpURLConnection conn = null; //连接对象
         InputStream is = null;
-        String resultData = "";
+        StringBuilder resultData = new StringBuilder();
         try {
             URL url = new URL(urlString); //URL对象
-            conn = (HttpURLConnection)url.openConnection(); //使用URL打开一个链接
+            conn = (HttpURLConnection) url.openConnection(); //使用URL打开一个链接
             conn.setDoInput(true); //允许输入流，即允许下载
             conn.setDoOutput(true); //允许输出流，即允许上传
             conn.setUseCaches(false); //不使用缓冲
             conn.setConnectTimeout(8000);
+            conn.setReadTimeout(8000);
             conn.setRequestMethod("GET"); //使用get请求
             is = conn.getInputStream();   //获取输入流，此时才真正建立链接
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader bufferReader = new BufferedReader(isr);
-            String inputLine  = "";
-            while((inputLine = bufferReader.readLine()) != null){
-                resultData += inputLine + "\n";
+            String inputLine = "";
+            while ((inputLine = bufferReader.readLine()) != null) {
+                resultData.append(inputLine);
             }
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
-        }finally{
-            if(is != null){
+        } finally {
+            if (is != null) {
                 try {
                     is.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            if(conn != null){
+            if (conn != null) {
                 conn.disconnect();
             }
         }
 
-        return resultData;
+        return resultData.toString();
     }
 
     /**
