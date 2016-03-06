@@ -1,4 +1,4 @@
-package com.example.dell.fragmentinfragment;
+package com.example.dell.fragmentinfragment.bean;
 
 /**
  * Created by dell on 2016/3/2.

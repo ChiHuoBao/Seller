@@ -1,12 +1,12 @@
-package com.example.dell.fragmentinfragment;
+package com.example.dell.fragmentinfragment.bean;
 
 /**
  * Created by dell on 2016/3/1.
  */
 public class Order {
     private String order_search_result_item_id;
-    private String telphone;
-    private String adddress;
+    private String telephone;
+    private String address;
     private String orderId;
     private String item_price;
     private String item_count;
@@ -24,11 +24,11 @@ public class Order {
     }
 
     public String getTelphone() {
-        return telphone;
+        return telephone;
     }
 
     public String getAdddress() {
-        return adddress;
+        return address;
     }
 
     public String getOrderId() {
@@ -60,11 +60,11 @@ public class Order {
     }
 
     public void setTelphone(String telphone) {
-        this.telphone = telphone;
+        this.telephone = telphone;
     }
 
     public void setAdddress(String adddress) {
-        this.adddress = adddress;
+        this.address = adddress;
     }
 
     public void setOrderId(String orderId) {

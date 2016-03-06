@@ -20,7 +20,7 @@
 
         </activity>
         <activity
-            android:name=".DeliverManActivity"
+            android:name=".activity.DeliverManActivity"
             android:label="@string/title_activity_deliver_man"
             android:theme="@style/AppTheme.NoActionBar" >
 

@@ -1,4 +1,4 @@
-package com.example.dell.fragmentinfragment;
+package com.example.dell.fragmentinfragment.util;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,11 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dell.fragmentinfragment.activity.DeliverManActivity;
+import com.example.dell.fragmentinfragment.bean.Order;
+import com.example.dell.fragmentinfragment.R;
+
+
 import java.util.List;
 
 /*
@@ -18,13 +23,13 @@ import java.util.List;
 
  * */
 
-public class OrderAdpter extends BaseAdapter {
+public class OrderAdapter extends BaseAdapter {
 
     private List<Order> mOrders=null;//ListView显示的数据
     private int resource;//显示列表项的Layout
     private LayoutInflater  inflater;//界面生成器
     private Context context;
-    public OrderAdpter(List<Order> orders, int resource, Context context){
+    public OrderAdapter(List<Order> orders, int resource, Context context){
 
         this.mOrders = orders;
         this.resource = resource;
@@ -61,7 +66,7 @@ public class OrderAdpter extends BaseAdapter {
             viewHolder = new ViewHolder();
             LayoutInflater mInflater = LayoutInflater.from(context);
             arg1 = mInflater.inflate(resource, null);
-            viewHolder.telphone = (TextView) arg1.findViewById(R.id.order_search_result_item_telphone);
+            viewHolder.telephone = (TextView) arg1.findViewById(R.id.order_search_result_item_telphone);
             viewHolder.time = (TextView) arg1.findViewById(R.id.order_search_result_item_time);
             viewHolder.address = (TextView)arg1.findViewById(R.id.order_search_result_item_address);
             viewHolder.orderId=(TextView) arg1.findViewById(R.id.order_search_result_item_orderId);
@@ -80,7 +85,7 @@ public class OrderAdpter extends BaseAdapter {
         Order order=getItem(arg0);
 
         if (order!=null){
-            viewHolder.telphone.setText(order.getTelphone());
+            viewHolder.telephone.setText(order.getTelphone());
             viewHolder.time.setText(order.getTime());
             viewHolder.address.setText(order.getAdddress());
             viewHolder.orderId.setText(order.getOrderId());
@@ -128,7 +133,7 @@ public class OrderAdpter extends BaseAdapter {
 
         private  class ViewHolder
     {
-        TextView telphone;
+        TextView telephone;
         TextView time;
         TextView address;
         TextView orderId;

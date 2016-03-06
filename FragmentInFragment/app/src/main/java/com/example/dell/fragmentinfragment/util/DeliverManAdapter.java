@@ -1,4 +1,4 @@
-package com.example.dell.fragmentinfragment;
+package com.example.dell.fragmentinfragment.util;
 
 import android.content.Context;
 import android.util.Log;
@@ -9,19 +9,23 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.dell.fragmentinfragment.bean.DeliverMan;
+import com.example.dell.fragmentinfragment.R;
+
+
 import java.util.List;
 
 /**
  * Created by dell on 2016/3/2.
  */
-public class DeliverManAdpter extends BaseAdapter {
+public class DeliverManAdapter extends BaseAdapter {
     private List<DeliverMan> mDeliverMans;
-    private int recouce;
+    private int resource;
     //private LayoutInflater mInflater;
     private Context mContext;
-    public DeliverManAdpter(List<DeliverMan> deliverManList, int recouce, Context context){
+    public DeliverManAdapter(List<DeliverMan> deliverManList, int recouce, Context context){
         this.mDeliverMans=deliverManList;
-        this.recouce=recouce;
+        this.resource=recouce;
         this.mContext=context;
     }
     @Override
@@ -45,10 +49,10 @@ public class DeliverManAdpter extends BaseAdapter {
         if (convertView==null){
             viewHolder = new ViewHolder();
             LayoutInflater inflater=LayoutInflater.from(mContext);
-            convertView=inflater.inflate(recouce,parent, false);
+            convertView=inflater.inflate(resource,parent, false);
             viewHolder.name= (TextView) convertView.findViewById(R.id.name);
             viewHolder.photo= (ImageView) convertView.findViewById(R.id.photo);
-            viewHolder.telphone= (TextView) convertView.findViewById(R.id.telephone);
+            viewHolder.telephone= (TextView) convertView.findViewById(R.id.telephone);
             convertView.setTag(viewHolder);
        }else{
             Log.i("!!!!!!!!!!!",""+convertView.getTag());
@@ -59,13 +63,13 @@ public class DeliverManAdpter extends BaseAdapter {
             Log.i("22",""+viewHolder);
             viewHolder.name.setText(deliverMan.getName());
             viewHolder.photo.setImageResource(deliverMan.getImageId());
-            viewHolder.telphone.setText(deliverMan.getTelephone());
+            viewHolder.telephone.setText(deliverMan.getTelephone());
         }
         return convertView;
     }
     private  class ViewHolder
     {
-        TextView telphone;
+        TextView telephone;
         TextView name;
         ImageView photo;
     }
