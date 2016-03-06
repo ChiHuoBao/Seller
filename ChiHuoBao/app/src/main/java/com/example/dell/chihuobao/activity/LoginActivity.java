@@ -10,16 +10,11 @@ import android.widget.TextView;
 
 import com.example.dell.chihuobao.R;
 import com.example.dell.chihuobao.util.BaseLog;
+import com.example.dell.chihuobao.util.HttpUtil;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
-
-import java.util.HashMap;
-
-import cn.smssdk.EventHandler;
-import cn.smssdk.SMSSDK;
-import cn.smssdk.gui.RegisterPage;
 
 @ContentView(R.layout.activity_login)
 public class LoginActivity extends BaseActivity {
@@ -52,11 +47,19 @@ public class LoginActivity extends BaseActivity {
     @Event(R.id.login)
     private void onLoginClick(View view) {
         BaseLog.i("登录点击");
+        String s= null;
+        try {
+            s = HttpUtil.getURLResponse("http://www.baidu.com");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        BaseLog.i(s);
     }
 
     @Event(R.id.to_login_by_phone)
     private void onLoginByPhoneClick(View view) {
         BaseLog.i("登录点击");
+
         Intent intent = new Intent(LoginActivity.this,
                 PhoneVerifyActivity.class);
         startActivity(intent);
