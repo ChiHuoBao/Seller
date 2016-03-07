@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,6 +16,8 @@ import com.example.dell.chihuobao.util.HttpUtil;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
+
+import java.net.URL;
 
 @ContentView(R.layout.activity_login)
 public class LoginActivity extends BaseActivity {
@@ -33,11 +36,13 @@ public class LoginActivity extends BaseActivity {
     @ViewInject(R.id.to_login_by_phone)
     private TextView TVLoginByPhone;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_login);
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         toolbar.setTitle("登录");
         setSupportActionBar(toolbar);
 
@@ -49,6 +54,7 @@ public class LoginActivity extends BaseActivity {
         BaseLog.i("登录点击");
         String s= "";
         try {
+
             s = HttpUtil.getURLResponse("http://www.baidu.com");
         } catch (Exception e) {
             e.printStackTrace();

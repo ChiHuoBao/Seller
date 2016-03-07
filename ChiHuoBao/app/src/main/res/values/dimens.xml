@@ -64,5 +64,32 @@
     <dimen name="restaurant_list_tip_textsize">15.0sp</dimen>
     <dimen name="spb_default_stroke_separator_length">4.0dip</dimen>
     <dimen name="spb_default_stroke_width">4.0dip</dimen>
-    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="list_item_height">222dp</dimen>
+
+    <dimen name="line">3dp</dimen>
+    <dimen name="text_size_toolbar_title">25sp</dimen>
+    <dimen name="text_size_profile_toolbar_title">20sp</dimen>
+    <dimen name="corner_radius_oval">16dp</dimen>
+
+    <dimen name="height_toolbar">70dp</dimen>
+    <dimen name="height_profile_image">250dp</dimen>
+
+    <!-- sum of *height_toolbar* and *height_profile_image* -->
+    <dimen name="height_profile_picture_with_toolbar">320dp</dimen>
+
+    <dimen name="size_button_message">60dp</dimen>
+
+    <!-- *height_profile_picture_with_toolbar* - half of *size_button_message* -->
+    <dimen name="margin_top_button_message">290dp</dimen>
+
+    <dimen name="common_margin_size">15dp</dimen>
+    <dimen name="setting_restaurant_icon_size">54.0dip</dimen>
+    <dimen name="setting_info_container_height">77.5dip</dimen>
+
+    <dimen name="spec_large">18.0sp</dimen>
+    <dimen name="spec_mini">12.0sp</dimen>
+    <dimen name="spec_line_margin_half">4.0dip</dimen>
+    <dimen name="spec_header">20.0sp</dimen>
+    <dimen name="spec_medium">15.0sp</dimen>
 </resources>

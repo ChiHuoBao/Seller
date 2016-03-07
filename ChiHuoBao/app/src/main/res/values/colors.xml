@@ -116,4 +116,21 @@
     <color name="transparent">#00000000</color>
     <color name="wait_for_process">#fffe6000</color>
     <color name="white">#ffffffff</color>
+
+    <color name="saffron">#F4B63E</color>
+    <color name="eggplant">#663D4E</color>
+    <color name="sienna">#EB6460</color>
+
+
+    <color name="gray">#21252a</color>
+    <color name="orange">#ff8c6a</color>
+
+
+
+    <color name="napos_dark_sky_blue">#ff427fed</color>
+    <color name="spec_gray">#ffeeeeee</color>
+    <color name="spec_white">#ffffffff</color>
+    <color name="spec_layout_bg_pressed">#ffebebeb</color>
+    <color name="spec_text_gray">#ff808080</color>
+    <color name="app_bg">#eeeeee</color>
 </resources>

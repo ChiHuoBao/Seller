@@ -20,7 +20,7 @@
 
     <!-- *height_profile_picture_with_toolbar* - half of *size_button_message* -->
     <dimen name="margin_top_button_message">290dp</dimen>
-=======
+
     <dimen name="common_margin_size">15dp</dimen>
     <dimen name="setting_restaurant_icon_size">54.0dip</dimen>
     <dimen name="setting_info_container_height">77.5dip</dimen>
@@ -31,5 +31,5 @@
     <dimen name="cell_height">44.0dip</dimen>
     <dimen name="spec_header">20.0sp</dimen>
     <dimen name="spec_medium">15.0sp</dimen>
->>>>>>> d273a515ea32f2075b5c60d958acbe14dd9c8ab4
+
 </resources>

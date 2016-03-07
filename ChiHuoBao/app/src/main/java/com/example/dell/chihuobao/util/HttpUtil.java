@@ -38,7 +38,8 @@ public class HttpUtil {
      * @param urlString
      * @return
      */
-    public static String getURLResponse(String urlString) {
+    public static String getURLResponse(final String urlString) {
+
         HttpURLConnection conn = null; //连接对象
         InputStream is = null;
         StringBuilder resultData = new StringBuilder();
