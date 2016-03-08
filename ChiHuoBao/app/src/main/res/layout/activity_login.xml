@@ -80,4 +80,5 @@
             android:text="忘记密码？"
             android:textColor="@color/napos_text_gray" />
     </LinearLayout>
+
 </android.support.design.widget.CoordinatorLayout>

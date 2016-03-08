@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/spec_gray">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/restaurant_info_container"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/setting_info_container_height"
+            android:background="@color/napos_dark_sky_blue"
+            android:gravity="center"
+            android:paddingLeft="@dimen/common_margin_size"
+            android:paddingRight="@dimen/common_margin_size">
+
+            <ImageView
+                android:id="@+id/iv_restaurant_icon"
+                android:layout_width="@dimen/setting_restaurant_icon_size"
+                android:layout_height="@dimen/setting_restaurant_icon_size"
+                android:layout_marginRight="@dimen/common_margin_size"
+                android:src="@drawable/icon_restaurant_photo_default" />
+
+            <LinearLayout
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_restaurant_name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textColor="@color/spec_white"
+                    android:textSize="@dimen/spec_large" />
+
+                <TextView
+                    android:id="@+id/tv_owner_phone"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8.0dip"
+                    android:drawableLeft="@drawable/icon_setting_phone"
+                    android:drawablePadding="@dimen/spec_line_margin_half"
+                    android:singleLine="true"
+                    android:textColor="@color/spec_white"
+                    android:textSize="@dimen/spec_mini"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_owner_cardnumber"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8.0dip"
+                    android:drawableLeft="@drawable/icon_setting_card"
+                    android:drawablePadding="@dimen/spec_line_margin_half"
+                    android:singleLine="true"
+                    android:textColor="@color/spec_white"
+                    android:textSize="@dimen/spec_mini"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5.0dip"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_setting_right_arraw" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_bg_with_line"
+            android:orientation="vertical">
+
+            <com.example.dell.chihuobao.appwidget.SettingsItemView
+                android:id="@+id/settings_connect_manager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:leftBackground="@drawable/icon_setting_connect_manager"
+                app:rightBackground="@drawable/setting_arrow"
+                app:settingTitle="联系市场经理"
+                app:settingTitleTextColor="#000">
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:background="@color/app_bg" />
+            </com.example.dell.chihuobao.appwidget.SettingsItemView>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/app_bg" />
+
+            <com.example.dell.chihuobao.appwidget.SettingsItemView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:leftBackground="@drawable/icon_setting_connect_service"
+                app:rightBackground="@drawable/setting_arrow"
+                app:settingTitle="联系客服"
+                app:settingTitleTextColor="@color/black"></com.example.dell.chihuobao.appwidget.SettingsItemView>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/app_bg" />
+            <com.example.dell.chihuobao.appwidget.SettingsItemView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:leftBackground="@drawable/icon_setting_feedback"
+                app:rightBackground="@drawable/setting_arrow"
+                app:settingTitle="帮助与反馈"
+                app:settingTitleTextColor="@color/black"></com.example.dell.chihuobao.appwidget.SettingsItemView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_margin_size"
+            android:background="@drawable/common_bg_with_line"
+            android:orientation="vertical">
+
+            <com.example.dell.chihuobao.appwidget.SettingsItemView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                app:settingTitle="系统版本"
+                app:settingTitleTextColor="@color/black"></com.example.dell.chihuobao.appwidget.SettingsItemView>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/settings_logout"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/cell_height"
+            android:layout_marginTop="@dimen/common_margin_size"
+            android:background="@drawable/selector_clickable_layout_bg_with_line"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/logout"
+            android:textColor="@color/napos_red"
+            android:textSize="@dimen/spec_header" />
+
+
+        <TextView
+            android:id="@+id/tvCopyRight"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_margin_size"
+            android:gravity="center_horizontal"
+            android:textColor="@color/spec_text_gray"
+            android:textSize="@dimen/spec_medium" />
+    </LinearLayout>
+
+</ScrollView>

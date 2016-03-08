@@ -1,6 +1,5 @@
 package com.example.dell.chihuobao.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -85,7 +84,7 @@ public class PhoneVerifyActivity extends BaseActivity implements View.OnClickLis
                         String phone = (String) phoneMap.get("phone");
 
                         Intent intent = new Intent(PhoneVerifyActivity.this,
-                                MainActivity.class);
+                                WelcomeActivity.class);
                         intent.putExtra("country", country);
                         intent.putExtra("phone", phone);
                         startActivity(intent);
@@ -172,7 +171,7 @@ public class PhoneVerifyActivity extends BaseActivity implements View.OnClickLis
                                 Toast.LENGTH_SHORT).show();
                         //TODO
                         Intent intent = new Intent(PhoneVerifyActivity.this,
-                                MainActivity.class);
+                                WelcomeActivity.class);
                         startActivity(intent);
                     } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
                         Toast.makeText(getApplicationContext(), "验证码已经发送",
