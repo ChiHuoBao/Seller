@@ -62,7 +62,7 @@
 
         </activity>
         <activity
-            android:name=".activity.LocationDemo"
+            android:name=".activity.LocationActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait">
 
