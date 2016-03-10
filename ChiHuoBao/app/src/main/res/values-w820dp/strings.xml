@@ -18,7 +18,7 @@
     </string-array>
     <string name="title_activity_deliver_man">DeliverManActivity</string>
 
-    <string name="logout">退出登录</string>
+
     <string name="notification_vibration">提示振动</string>
     <string-array name="foodType">
         <item>套餐一</item>
