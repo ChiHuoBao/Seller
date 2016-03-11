@@ -13,7 +13,17 @@ public class Order {
     private String item_name;
     private String notice;
     private String receipt;
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
     private String time;
+    private Item item;
 
     public String getOrder_search_result_item_id() {
         return order_search_result_item_id;
