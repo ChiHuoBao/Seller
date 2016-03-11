@@ -5,6 +5,7 @@
     android:layout_height="fill_parent"
     android:background="@color/spec_gray">
 
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -20,7 +21,7 @@
             android:paddingRight="@dimen/common_margin_size">
 
             <ImageView
-                android:id="@+id/iv_restaurant_icon"
+                android:id="@+id/restaurant_icon"
                 android:layout_width="@dimen/setting_restaurant_icon_size"
                 android:layout_height="@dimen/setting_restaurant_icon_size"
                 android:layout_marginRight="@dimen/common_margin_size"
@@ -72,71 +73,117 @@
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/icon_setting_right_arraw" />
         </LinearLayout>
-
-        <LinearLayout
+ 
+        <RelativeLayout
+            android:id="@+id/recommond_to_weixin_layout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/common_bg_with_line"
-            android:orientation="vertical">
+            android:layout_marginBottom="20dip"
+            android:background="@drawable/setting_bg">
 
-            <com.example.dell.chihuobao.appwidget.SettingsItemView
+            <TextView
                 android:id="@+id/settings_connect_manager"
-                android:layout_width="match_parent"
+                style="@style/setting_text_style"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:leftBackground="@drawable/icon_setting_connect_manager"
-                app:rightBackground="@drawable/setting_arrow"
-                app:settingTitle="联系市场经理"
-                app:settingTitleTextColor="#000">
+                android:text="@string/contact_manager" />
 
-                <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="1dip"
-                    android:background="@color/app_bg" />
-            </com.example.dell.chihuobao.appwidget.SettingsItemView>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dip"
-                android:background="@color/app_bg" />
-
-            <com.example.dell.chihuobao.appwidget.SettingsItemView
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:leftBackground="@drawable/icon_setting_connect_service"
-                app:rightBackground="@drawable/setting_arrow"
-                app:settingTitle="联系客服"
-                app:settingTitleTextColor="@color/black"></com.example.dell.chihuobao.appwidget.SettingsItemView>
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dip"
+                android:src="@drawable/setting_arrow" />
+        </RelativeLayout>
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dip"
-                android:background="@color/app_bg" />
-            <com.example.dell.chihuobao.appwidget.SettingsItemView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:leftBackground="@drawable/icon_setting_feedback"
-                app:rightBackground="@drawable/setting_arrow"
-                app:settingTitle="帮助与反馈"
-                app:settingTitleTextColor="@color/black"></com.example.dell.chihuobao.appwidget.SettingsItemView>
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/common_margin_size"
-            android:background="@drawable/common_bg_with_line"
+            android:layout_marginBottom="20dip"
+            android:background="@drawable/setting_bg"
             android:orientation="vertical">
 
-            <com.example.dell.chihuobao.appwidget.SettingsItemView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+
+            <RelativeLayout
+                android:id="@+id/feedback_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/contact_service"
+                    style="@style/setting_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contact_service" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dip"
+                    android:src="@drawable/setting_arrow" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/app_bg" />
 
 
-                app:settingTitle="系统版本"
-                app:settingTitleTextColor="@color/black"></com.example.dell.chihuobao.appwidget.SettingsItemView>
+            <RelativeLayout
+                android:id="@+id/about_us_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
 
+                <TextView
+                    android:id="@+id/help"
+                    style="@style/setting_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dip"
+                    android:src="@drawable/setting_arrow" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/app_bg" />
+
+
+
+            <RelativeLayout
+                android:id="@+id/app_recommend_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/version"
+                    style="@style/setting_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/version" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dip"
+                    android:src="@drawable/setting_arrow" />
+            </RelativeLayout>
         </LinearLayout>
+
+
 
 
         <TextView
@@ -151,15 +198,7 @@
             android:textColor="@color/napos_red"
             android:textSize="@dimen/spec_header" />
 
-
-        <TextView
-            android:id="@+id/tvCopyRight"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/common_margin_size"
-            android:gravity="center_horizontal"
-            android:textColor="@color/spec_text_gray"
-            android:textSize="@dimen/spec_medium" />
     </LinearLayout>
+
 
 </ScrollView>

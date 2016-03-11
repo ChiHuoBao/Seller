@@ -22,10 +22,15 @@
             android:id="@+id/id_tab_orde_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:textColor="#999999"
             android:textSize="12sp"
             android:text="订单"/>
         <!--#a9a9a9-->
+=======
+            android:textColor="#ffffff"
+            android:text="订单管理"/>
+>>>>>>> 134a044af15af39b80a3277b1958819703564be4
     </LinearLayout>
     <LinearLayout 
         android:id="@+id/id_tab_frd"
@@ -45,9 +50,14 @@
             android:id="@+id/id_tab_food_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:textColor="#999999"
             android:textSize="12sp"
             android:text="商品"/>
+=======
+            android:textColor="#ffffff"
+            android:text="菜单管理"/>
+>>>>>>> 134a044af15af39b80a3277b1958819703564be4
     </LinearLayout>
     <LinearLayout 
         android:id="@+id/id_tab_address"
@@ -67,8 +77,12 @@
             android:id="@+id/id_tab_count_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:textColor="#999999"
             android:textSize="12sp"
+=======
+            android:textColor="#ffffff"
+>>>>>>> 134a044af15af39b80a3277b1958819703564be4
             android:text="账户"/>
     </LinearLayout>
     <LinearLayout 
