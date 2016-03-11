@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.baidu.mapapi.SDKInitializer;
 
+import com.example.dell.chihuobao.BuildConfig;
+
 import org.xutils.x;
 
 /**

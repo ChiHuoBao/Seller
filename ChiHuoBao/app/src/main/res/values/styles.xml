@@ -3,19 +3,32 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+<<<<<<< HEAD
+        <item name="colorPrimary">#0088ff</item>
+        <item name="colorPrimaryDark">#0088ff</item>
+        <item name="colorAccent">#0088ff</item>
+=======
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">#ff427fed</item>
         <item name="colorAccent">#ff427fed</item>
+>>>>>>> 134a044af15af39b80a3277b1958819703564be4
     </style>
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
     <style name="Widget.EditText.Ele" parent="@android:style/Widget.EditText">
         <item name="android:layout_height">@dimen/edit_text_height</item>
     </style>
+<<<<<<< HEAD
+
+
+
+=======
     <style name="setting_text_style">
         <item name="android:textSize">16.0dip</item>
         <item name="android:textColor">@color/black</item>
@@ -41,5 +54,6 @@
         <item name="android:textSize">20.0dip</item>
         <item name="android:textColor">@color/dark_theme_text</item>
     </style>
+>>>>>>> 65273b4fcd7c6bed09d71827c3a6bf4c37bc48c4
 
 </resources>

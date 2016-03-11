@@ -1,6 +1,6 @@
 package com.example.dell.chihuobao.fragment;
 
-import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,19 +8,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.example.dell.chihuobao.R;
-import com.example.dell.chihuobao.util.MyFoodListViewAdapter;
+import com.example.dell.chihuobao.activity.FoodMenuAddNewFoodActivity;
+import com.example.dell.chihuobao.util.FoodMenuRightListViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,7 +97,7 @@ public class FoodMenuFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
 		//引入我们的布局
-		View foodMenuLayout =  inflater.inflate(R.layout.food_menu, container, false);
+		View foodMenuLayout =  inflater.inflate(R.layout.fragment_food_menu, container, false);
 		initData();
 		listView = (ListView)foodMenuLayout.findViewById(R.id.listView1);
 		listView2 = (ListView)foodMenuLayout.findViewById(R.id.listView2);
@@ -107,26 +105,8 @@ public class FoodMenuFragment extends Fragment {
 		mButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				final AlertDialog addFood = new AlertDialog.Builder(getActivity()).create();
-				addFood.setView(new EditText(getActivity()));
-				addFood.show();
-				Window window = addFood.getWindow();
-				window.setContentView(R.layout.add_food_alert);
-				Button btnCancel = (Button)addFood.findViewById(R.id.add_food_cancel);
-				Button btnConfirm = (Button)addFood.findViewById(R.id.add_food_confirm);
-				btnCancel.setOnClickListener(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						addFood.dismiss();
-					}
-				});
-				btnConfirm.setOnClickListener(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						Toast.makeText(getActivity(),"哈哈",Toast.LENGTH_SHORT).show();
-						addFood.dismiss();
-					}
-				});
+				Intent intent = new Intent(getActivity(), FoodMenuAddNewFoodActivity.class);
+				startActivity(intent);
 
 			}
 		});
@@ -137,11 +117,11 @@ public class FoodMenuFragment extends Fragment {
 	private void initView()
 	{
 		//菜品种类的listView
-		MyFoodListViewAdapter myFoodListViewAdapter = new MyFoodListViewAdapter(getActivity(),allFood,foodType);
-		myFoodListViewAdapter.notifyDataSetChanged();
+		FoodMenuRightListViewAdapter foodMenuRightListViewAdapter = new FoodMenuRightListViewAdapter(getActivity(),allFood,foodType);
+		foodMenuRightListViewAdapter.notifyDataSetChanged();
 
-		listView.setAdapter(new ArrayAdapter<String>(getActivity(), R.layout.food_type, foodType));
-		listView2.setAdapter(myFoodListViewAdapter);
+		listView.setAdapter(new ArrayAdapter<String>(getActivity(), R.layout.adapter_food_menu_left_item, foodType));
+		listView2.setAdapter(foodMenuRightListViewAdapter);
 		/**
 		 * 下面这个函数表示点了种类表中的item中，item变色，然后右边的菜品列表跳转的当前种类置顶
 		 */

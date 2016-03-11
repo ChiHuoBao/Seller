@@ -3,6 +3,7 @@ package com.example.dell.fragmentinfragment.activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -114,7 +115,7 @@ public class FoodMenuFragment extends Fragment {
 		mButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				final AlertDialog addFood = new AlertDialog.Builder(getActivity()).create();
+				/*final AlertDialog addFood = new AlertDialog.Builder(getActivity()).create();
 				addFood.setView(new EditText(getActivity()));
 				addFood.show();
 				Window window = addFood.getWindow();
@@ -133,7 +134,9 @@ public class FoodMenuFragment extends Fragment {
 						Toast.makeText(getActivity(),"哈哈",Toast.LENGTH_SHORT).show();
 						addFood.dismiss();
 					}
-				});
+				});*/
+				Intent intent = new Intent(getActivity(),AddNewFood.class);
+				startActivity(intent);
 
 			}
 		});

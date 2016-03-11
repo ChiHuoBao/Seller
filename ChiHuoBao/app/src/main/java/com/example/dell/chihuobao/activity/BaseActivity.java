@@ -3,7 +3,7 @@ package com.example.dell.chihuobao.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import org.xutils.x;
+import org.xutils.*;
 
 /**
  * Created by fanghao on 2016/3/3.

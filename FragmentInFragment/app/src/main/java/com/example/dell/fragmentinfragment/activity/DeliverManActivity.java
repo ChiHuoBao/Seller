@@ -10,6 +10,8 @@ import com.example.dell.fragmentinfragment.util.DeliverManAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 
 public class DeliverManActivity extends AppCompatActivity {
     private List<DeliverMan> mDeliverMans;
@@ -27,8 +29,10 @@ public class DeliverManActivity extends AppCompatActivity {
             R.drawable.oleksii,
             R.drawable.pavel,
             R.drawable.vadim};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deliver_man);
         mDeliverMans=new ArrayList<DeliverMan>();

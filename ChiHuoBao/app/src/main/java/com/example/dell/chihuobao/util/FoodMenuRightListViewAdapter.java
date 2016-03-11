@@ -19,14 +19,14 @@ import com.example.dell.chihuobao.R;
 /**
  * Created by dell on 2016/3/1.
  */
-public class MyFoodListViewAdapter extends BaseAdapter {
+public class FoodMenuRightListViewAdapter extends BaseAdapter {
     private ArrayList foodType;
     private ArrayList allFood;
     private Context context;
     private LayoutInflater inflater;
     final static  int ITEM_TAG = 1;
     final static int ITEM_NORMAL=0;
-    public MyFoodListViewAdapter(Context context,ArrayList allFood,ArrayList arrayList){
+    public FoodMenuRightListViewAdapter(Context context, ArrayList allFood, ArrayList arrayList){
         this.context = context;
         this.foodType = arrayList;
         this.allFood = allFood;
@@ -80,7 +80,7 @@ public class MyFoodListViewAdapter extends BaseAdapter {
             switch(type)
             {
                 case ITEM_TAG:
-                    convertView = inflater.inflate(R.layout.group_list_item_tag, parent, false);
+                    convertView = inflater.inflate(R.layout.adapter_food_menu_right_tag, parent, false);
                     viewHolderTag = new ViewHolderTag();
                     viewHolderTag.tvFoodTypeName = (TextView)convertView.findViewById(R.id.group_list_item_text);
                     viewHolderTag.tvFoodTypeModify = (TextView)convertView.findViewById(R.id.tv_food_type_modify);
@@ -88,7 +88,7 @@ public class MyFoodListViewAdapter extends BaseAdapter {
                     convertView.setTag(viewHolderTag);
                     break;
                 case ITEM_NORMAL:
-                    convertView = inflater.inflate(R.layout.group_list_item, parent, false);
+                    convertView = inflater.inflate(R.layout.adapter_food_menu_right_item, parent, false);
                     viewHolderNormal = new ViewHolderNormal();
                     viewHolderNormal.tvFoodName = (TextView)convertView.findViewById(R.id.group_list_item_text);
                     viewHolderNormal.imageView = (ImageView)convertView.findViewById(R.id.food_image);
@@ -123,7 +123,7 @@ public class MyFoodListViewAdapter extends BaseAdapter {
                 viewHolderTag.tvFoodTypeModify.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        TableLayout foodTypeEditView = (TableLayout) inflater.inflate(R.layout.food_type_modify_dialog, null);
+                        TableLayout foodTypeEditView = (TableLayout) inflater.inflate(R.layout.dialog_food_menu_right_type_modify, null);
                         final EditText editText = (EditText)foodTypeEditView.findViewById(R.id.food_type_modify_edit);
                         editText.setText(getItem(position).toString());
 
