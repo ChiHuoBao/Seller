@@ -2,6 +2,7 @@ package com.example.dell.fragmentinfragment.util;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,23 +17,36 @@ import android.widget.TextView;
 import com.example.dell.fragmentinfragment.R;
 
 import java.util.ArrayList;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 
 /**
  * Created by dell on 2016/3/1.
  */
 public class MyFoodListViewAdapter extends BaseAdapter {
+
     private ArrayList foodType;
     private ArrayList allFood;
     private Context context;
     private LayoutInflater inflater;
     final static  int ITEM_TAG = 1;
     final static int ITEM_NORMAL=0;
+    android.os.Handler handler = new android.os.Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch(msg.what){
+                case 1:
+
+            }
+        }
+    }
     public MyFoodListViewAdapter(Context context,ArrayList allFood,ArrayList arrayList){
         this.context = context;
         this.foodType = arrayList;
         this.allFood = allFood;
         inflater  = LayoutInflater.from(context);
     }
+
 
     @Override
     public int getCount() {
@@ -133,6 +147,16 @@ public class MyFoodListViewAdapter extends BaseAdapter {
                                 .setView(foodTypeEditView).setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        String editFoodType = editText.getText().toString();
+                                        Message message = new Message();
+                                        message.what = 1;
+                                        message.obj = editFoodType;
+
+                                    }
+                                });
                                 String editFoodType = editText.getText().toString();
                                 int index = foodType.indexOf(getItem(position));
                                 foodType.set(index,editFoodType);

@@ -3,6 +3,8 @@ package com.example.dell.chihuobao.util;
 import android.app.Application;
 
 
+import com.example.dell.chihuobao.BuildConfig;
+
 import org.xutils.x;
 
 import cn.smssdk.SMSSDK;
