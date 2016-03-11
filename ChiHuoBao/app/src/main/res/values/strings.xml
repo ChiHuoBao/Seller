@@ -7,4 +7,7 @@
     <string name="help">帮助与反馈</string>
     <string name="version">系统版本</string>
     <string name="logout">退出登录</string>
+    <string name="content_edit_hint">请输入你的建议，谢谢！</string>
+    <string name="mobile_number">电话</string>
+    <string name="mobile_number_hint">请输入电话</string>
 </resources>
