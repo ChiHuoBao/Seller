@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 import com.example.dell.chihuobao.R;
@@ -62,6 +63,8 @@ public class ListViewFragment extends BaseRefreshFragment {
         mPullToRefreshView.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                //此处写业务代码
+                Toast.makeText(getActivity(), "下拉刷新", Toast.LENGTH_SHORT).show();
                 mPullToRefreshView.postDelayed(new Runnable() {
                     @Override
                     public void run() {

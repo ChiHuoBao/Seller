@@ -73,7 +73,7 @@
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/icon_setting_right_arraw" />
         </LinearLayout>
- 
+
         <RelativeLayout
             android:id="@+id/recommond_to_weixin_layout"
             android:layout_width="fill_parent"
