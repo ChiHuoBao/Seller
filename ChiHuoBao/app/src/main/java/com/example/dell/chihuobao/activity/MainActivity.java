@@ -22,10 +22,10 @@ import android.widget.Toast;
 
 import com.example.dell.chihuobao.R;
 import com.example.dell.chihuobao.fragment.FoodMenuFragment;
-import com.example.dell.chihuobao.fragment.ListViewFragment;
+import com.example.dell.chihuobao.fragment.ProcessOrderListFragment;
 import com.example.dell.chihuobao.fragment.SettingFragment;
+import com.example.dell.chihuobao.fragment.UnprocessOrderListFragment;
 import com.example.dell.chihuobao.fragment.UserFragment;
-
 
 import java.util.ArrayList;
 
@@ -44,10 +44,15 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     private LinearLayout mTabAddress;
     private LinearLayout mTabSetting;
     //底部4个导航控件中的图片按钮
-    private ImageButton mImgWeixin;
-    private ImageButton mImgFrd;
-    private ImageButton mImgAddress;
+    private ImageButton mImgOrder;
+    private ImageButton mImgFood;
+    private ImageButton mImgCount;
     private ImageButton mImgSetting;
+    //底部4个导航控件中的文字
+    private TextView mTextOrder;
+    private TextView mTextFood;
+    private TextView mTextCount;
+    private TextView mTextSetting;
     //四个界面
     private Fragment tab01;
     private Fragment tab02;
@@ -79,10 +84,14 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         mTabFrd = (LinearLayout)findViewById(R.id.id_tab_frd);
         mTabAddress = (LinearLayout)findViewById(R.id.id_tab_address);
         mTabSetting = (LinearLayout)findViewById(R.id.id_tab_setting);
-        mImgWeixin = (ImageButton)findViewById(R.id.id_tab_weixin_img);
-        mImgFrd = (ImageButton)findViewById(R.id.id_tab_frd_img);
-        mImgAddress = (ImageButton)findViewById(R.id.id_tab_address_img);
+        mImgOrder = (ImageButton)findViewById(R.id.id_tab_order_img);
+        mImgFood = (ImageButton)findViewById(R.id.id_tab_food_img);
+        mImgCount = (ImageButton)findViewById(R.id.id_tab_count_img);
         mImgSetting = (ImageButton)findViewById(R.id.id_tab_setting_img);
+        mTextSetting= (TextView) findViewById(R.id.id_tab_setting_text);
+        mTextCount= (TextView) findViewById(R.id.id_tab_count_text);
+        mTextOrder= (TextView) findViewById(R.id.id_tab_orde_text);
+        mTextFood= (TextView) findViewById(R.id.id_tab_food_text);
 
     }
 
@@ -126,10 +135,14 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
 //实现导航栏图标变色的方法
     private void resetImg() {
-        mImgWeixin.setImageResource(R.drawable.icon_processing);
-        mImgFrd.setImageResource(R.drawable.tab_find_frd_normal);
-        mImgAddress.setImageResource(R.drawable.tab_address_normal);
-        mImgSetting.setImageResource(R.drawable.tab_settings_normal);
+        mImgOrder.setImageResource(R.drawable.shopping_home_tab_order);
+        mImgFood.setImageResource(R.drawable.shopping_home_tab_take_out);
+        mImgCount.setImageResource(R.drawable.shopping_home_tab_found);
+        mImgSetting.setImageResource(R.drawable.shopping_home_tab_personal);
+        mTextOrder.setTextColor(Color.parseColor("#999999"));
+        mTextCount.setTextColor(Color.parseColor("#999999"));
+        mTextFood.setTextColor(Color.parseColor("#999999"));
+        mTextSetting.setTextColor(Color.parseColor("#999999"));
     }
 
     private void setSelect(int i) {
@@ -148,7 +161,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 }else {
                     transaction.show(tab01);
                 }
-                mImgWeixin.setImageResource(R.drawable.icon_multi_order);
+                mImgOrder.setImageResource(R.drawable.shopping_home_tab_order_selected);
+                mTextOrder.setTextColor(Color.parseColor("#6699ff"));
                 break;
             case 1:
                 if (tab02 == null) {
@@ -157,7 +171,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 }else {
                     transaction.show(tab02);
                 }
-                mImgFrd.setImageResource(R.drawable.tab_find_frd_pressed);
+                mImgFood.setImageResource(R.drawable.shopping_home_tab_take_out_selected);
+                mTextFood.setTextColor(Color.parseColor("#6699ff"));
                 break;
             case 2:
                 if (tab03 == null) {
@@ -166,7 +181,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 }else {
                     transaction.show(tab03);
                 }
-                mImgAddress.setImageResource(R.drawable.tab_address_pressed);
+                mImgCount.setImageResource(R.drawable.shopping_home_tab_found_selected);
+                mTextCount.setTextColor(Color.parseColor("#6699ff"));
                 break;
             case 3:
                 if (tab04 == null) {
@@ -175,7 +191,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 }else {
                     transaction.show(tab04);
                 }
-                mImgSetting.setImageResource(R.drawable.tab_settings_pressed);
+                mImgSetting.setImageResource(R.drawable.shopping_home_tab_personal_selected);
+                mTextSetting.setTextColor(Color.parseColor("#6699ff"));
                 break;
 
             default:
@@ -211,12 +228,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             DisplayMetrics metric = new DisplayMetrics();
             getActivity().getWindowManager().getDefaultDisplay().getMetrics(metric);
             screenW = metric.widthPixels;
-            ListViewFragment listViewFragment = new ListViewFragment();
-            ListViewFragment listViewFragment2 = new ListViewFragment();
+            UnprocessOrderListFragment unprocessOrderListFragment = new UnprocessOrderListFragment();
+            ProcessOrderListFragment processOrderListFragment = new ProcessOrderListFragment();
             //RecyclerViewFragment recyclerViewFragment = new RecyclerViewFragment();
             fragmentListView = new ArrayList<Fragment>();
-            fragmentListView.add(listViewFragment);
-            fragmentListView.add(listViewFragment2);
+            fragmentListView.add(unprocessOrderListFragment);
+            fragmentListView.add(processOrderListFragment);
 
 
             final int parent_position = getArguments().getInt("position");

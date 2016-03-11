@@ -1,6 +1,7 @@
 package com.example.dell.chihuobao.util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,26 +10,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dell.chihuobao.R;
+import com.example.dell.chihuobao.activity.DeliverManActivity;
 import com.example.dell.chihuobao.appwidget.MyListView;
 import com.example.dell.chihuobao.bean.Item;
 import com.example.dell.chihuobao.bean.Order;
 
 import java.util.ArrayList;
 import java.util.List;
-/*
 
- * 未处理订单ListView的adapter，其中嵌套一个listview。
- * Created by Zx on 2016/3/9
-
- * */
-
-public class OrderAdapter extends BaseAdapter {
-
+/**已处理订单的界面
+ * Created by Zx on 2016/3/9.
+ */
+public class ProcessOrderAdapter extends BaseAdapter {
     private List<Order> mOrders=null;//ListView显示的数据
     private int resource;//显示列表项的Layout
-    private LayoutInflater  inflater;//界面生成器
+    private LayoutInflater inflater;//界面生成器
     private Context context;
-    public OrderAdapter(List<Order> orders, int resource, Context context){
+    public ProcessOrderAdapter(List<Order> orders, int resource, Context context){
 
         this.mOrders = orders;
         this.resource = resource;
@@ -62,7 +60,6 @@ public class OrderAdapter extends BaseAdapter {
 
 
 
-
         if(arg1 == null){
             viewHolder = new ViewHolder();
             LayoutInflater mInflater = LayoutInflater.from(context);
@@ -88,7 +85,7 @@ public class OrderAdapter extends BaseAdapter {
             viewHolder.address.setText(order.getAdddress());
             viewHolder.orderId.setText(order.getOrderId());
             mItems.add(order.getItem());
-            OrderFoodAdapter orderFoodAdapter=new OrderFoodAdapter(mItems,R.layout.item_mylistview,context);//嵌套listvie的适配器
+            OrderFoodAdapter orderFoodAdapter=new OrderFoodAdapter(mItems,R.layout.item_mylistview,context);
             viewHolder.food.setAdapter(orderFoodAdapter);
             viewHolder.notice.setText(order.getNotice());
             viewHolder.receipt.setText(order.getReceipt());
@@ -123,18 +120,19 @@ public class OrderAdapter extends BaseAdapter {
         @Override
         public void onClick(View v) {
             int vid = v.getId();
-            Toast.makeText(context,"将订单状态改为已处理",Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(context, position + "", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(context, DeliverManActivity.class);
+            context.startActivity(intent);
         }
     }
 
-        private  class ViewHolder
+    private  class ViewHolder
     {
         TextView telephone;
         TextView time;
         TextView address;
         TextView orderId;
-        MyListView food;//嵌套的lsitview
+        MyListView food;
         TextView notice;
         TextView receipt;
         TextView item_id;
@@ -142,6 +140,3 @@ public class OrderAdapter extends BaseAdapter {
 
     }
 }
-
-
-
